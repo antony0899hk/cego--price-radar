@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>C•E•GO Life Loop Bridge</title>
+<style>:root{--r:#e53935;--ink:#17231d;--muted:#6f7c75;--line:#e6ece8;--bg:#f7faf8;--g:#2f8f66}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang HK",sans-serif}.wrap{max-width:760px;margin:auto;padding:24px 16px 80px}.eyebrow{font-size:11px;font-weight:900;letter-spacing:1.2px;color:var(--r)}h1{font-size:28px;margin:6px 0 8px}.lead{color:var(--muted);line-height:1.6}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;margin:14px 0;box-shadow:0 4px 18px #1d3b2a08}.ok{border-color:#a9d8bf;background:#f2fbf6}.bad{border-color:#f1b4b2;background:#fff7f7}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}.pill{display:inline-block;padding:5px 9px;border-radius:99px;background:#e9f6ef;color:#176244;font-size:11px;font-weight:800}.muted{color:var(--muted);font-size:12px;line-height:1.5}button,a.btn{display:inline-block;border:0;border-radius:13px;padding:12px 14px;background:var(--r);color:#fff;text-decoration:none;font-weight:800;cursor:pointer}.secondary{background:#edf2ef!important;color:#425148!important}.history{display:grid;gap:9px}.history .card{margin:0}</style></head>
+<body><main class="wrap"><div class="eyebrow">C•E•GO PRICE RADAR × MY EXPENSES</div><h1>🔁 Life Loop</h1><p class="lead">Expenses 係「買咗」嘅事實來源；Radar 只會用已確認購買更新補貨週期。搜尋、瀏覽、收藏都唔會當成買咗。</p>
+<div id="status" class="card"><b>等待 My Expenses 購買確認…</b><p class="muted">如果由 My Expenses Bridge 開過嚟，事件會自動讀取。</p></div>
+<section><h2 style="font-size:18px">最近確認購買</h2><div id="history" class="history"></div></section>
+<p><a class="btn secondary" href="./index.html">← 返回 Price Radar</a></p></main>
+<script>
+const EVENT_KEY='cego-price-purchase-events-v1';
+const RESTOCK_KEY='cego-price-restock-v1';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const read=(k,fallback=[])=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(fallback))}catch{return fallback}};
+const write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+function decodeEvent(){
+  const p=new URLSearchParams(location.hash.slice(1)),raw=p.get('event'); if(!raw)return null;
+  try{return JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(raw)))))}catch{return null}
+}
+function valid(e){return e&&e.type==='purchase.confirmed'&&e.eventVersion===1&&e.eventId&&e.expenseId&&e.productName&&/^\d{4}-\d{2}-\d{2}$/.test(e.purchaseDate)&&e.source==='my-expenses-user-confirmed'&&Number(e.confidence)===1}
+function daysBetween(a,b){return Math.round((new Date(b+'T12:00:00')-new Date(a+'T12:00:00'))/86400000)}
+function median(xs){if(!xs.length)return null;const a=[...xs].sort((x,y)=>x-y),m=Math.floor(a.length/2);return a.length%2?a[m]:(a[m-1]+a[m])/2}
+function productKey(name){return String(name).trim().toLowerCase().replace(/\s+/g,' ')}
+function learn(events,name){const dates=[...new Set(events.filter(x=>productKey(x.productName)===productKey(name)).map(x=>x.purchaseDate))].sort();const gaps=[];for(let i=1;i<dates.length;i++){const d=daysBetween(dates[i-1],dates[i]);if(d>=1&&d<=180)gaps.push(d)}return{dates,cycle:gaps.length?Math.round(median(gaps)):null}}
+function importEvent(e){
+  let events=read(EVENT_KEY,[]);if(events.some(x=>x.eventId===e.eventId||x.expenseId===e.expenseId))return{duplicate:true,events};
+  events=[e,...events].slice(0,300);write(EVENT_KEY,events);
+  const info=learn(events,e.productName),restocks=read(RESTOCK_KEY,[]),key=productKey(e.productName),i=restocks.findIndex(x=>productKey(x.name||x.productName)===key);
+  const base=i>=0?restocks[i]:{id:'expenses-'+key.replace(/[^a-z0-9\u3400-\u9fff]+/gi,'-').slice(0,50),name:e.productName,reminderEnabled:true};
+  const updated={...base,name:e.productName,lastBoughtAt:e.purchaseDate,lastPurchasedAt:e.purchaseDate,purchaseSource:'expenses',purchaseHistory:info.dates,estimatedCycleDays:info.cycle||base.estimatedCycleDays||base.intervalDays||null,intervalDays:info.cycle||base.intervalDays||null};
+  if(i>=0)restocks[i]=updated;else restocks.unshift(updated);write(RESTOCK_KEY,restocks);return{duplicate:false,events,updated,info}
+}
+function render(){const events=read(EVENT_KEY,[]),box=$('#history');if(!events.length){box.innerHTML='<div class="card muted">未有 purchase.confirmed。搜尋紀錄唔會出現喺呢度。</div>';return}box.innerHTML=events.slice(0,12).map(e=>{const info=learn(events,e.productName),cycle=info.cycle?`平時約 ${info.cycle} 日再買`:'需要多一次確認購買先開始學週期';return `<div class="card"><div class="row"><b>${esc(e.productName)}</b><span class="pill">✓ 已買</span></div><p style="margin:8px 0 4px">${esc(e.purchaseDate)} · ${esc(e.currency)} ${Number(e.amount||0).toLocaleString()}</p><div class="muted">${cycle} · 來源：My Expenses 人手確認</div></div>`}).join('')}
+const incoming=decodeEvent();if(incoming){if(valid(incoming)){const r=importEvent(incoming),info=learn(r.events,incoming.productName);$('#status').className='card ok';$('#status').innerHTML=`<b>${r.duplicate?'✓ 呢筆購買之前已收過':'✓ 已確認真正購買'}</b><p>${esc(incoming.productName)} · ${esc(incoming.purchaseDate)}</p><p class="muted">${info.cycle?`已按購買歷史估算約 ${info.cycle} 日一個補貨週期。`:'已記錄第一次確認購買；再有一次先計個人補貨週期。'} 搜尋／瀏覽唔會改呢個日期。</p>`;history.replaceState(null,'',location.pathname)}else{$('#status').className='card bad';$('#status').innerHTML='<b>⚠️ 冇匯入</b><p class="muted">事件唔符合 purchase.confirmed v1 規格，所以冇改補貨日期。</p>'}}
+render();
+</script></body></html>
