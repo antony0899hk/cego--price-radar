@@ -1,0 +1,15 @@
+{
+  "牙膏": [
+    {"store":"惠康","brand":"Colgate","product":"高露潔牙膏","price":29.9,"regularPrice":36.9,"promo":"特價","source":"starter-feed"},
+    {"store":"百佳","brand":"Colgate","product":"高露潔牙膏","price":34.0,"regularPrice":34.0,"promo":"第二件優惠待核實","source":"starter-feed"},
+    {"store":"萬寧","brand":"Darlie","product":"黑人牙膏","price":31.5,"regularPrice":35.9,"promo":"同類品牌優惠","source":"starter-feed"}
+  ],
+  "洗頭水": [
+    {"store":"屈臣氏","brand":"Pantene","product":"Pantene 洗頭水","price":48.0,"regularPrice":55.9,"promo":"會員價","source":"starter-feed"},
+    {"store":"惠康","brand":"Pantene","product":"Pantene 洗頭水","price":52.9,"regularPrice":52.9,"promo":"暫無優惠","source":"starter-feed"}
+  ],
+  "咖啡": [
+    {"store":"百佳","brand":"UCC","product":"UCC 咖啡","price":69.9,"regularPrice":79.9,"promo":"本週特價","source":"starter-feed"},
+    {"store":"惠康","brand":"UCC","product":"UCC 咖啡","price":72.0,"regularPrice":78.0,"promo":"買二減十","source":"starter-feed"}
+  ]
+}
