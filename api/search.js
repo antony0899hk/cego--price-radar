@@ -8,7 +8,13 @@ const ALIASES={
  'm巾':['衛生巾','衞生巾','sanitary pad','sanitary napkin'],
  '廁紙':['廁紙','衛生紙','toilet paper','toilet tissue','bathroom tissue'],
  '洗頭水':['洗頭水','洗髮水','洗髮','shampoo'],
- '牛奶':['牛奶','鮮奶','milk'],
+ '牛奶':['牛奶','鮮奶','milk','fresh milk'],
+ '鮮奶':['鮮奶','牛奶','fresh milk','milk'],
+ '新鮮牛奶':['鮮奶','牛奶','fresh milk','milk'],
+ '零食':['零食','小食','snack','snacks','chips','crisps','biscuit','biscuits','cracker','crackers','chocolate','朱古力','薯片','餅乾','曲奇'],
+ '薯片':['薯片','chips','crisps','potato chips','snack'],
+ '餅乾':['餅乾','餅乾','biscuit','biscuits','cracker','crackers','cookie','cookies'],
+ '朱古力':['朱古力','巧克力','chocolate'],
  '咖啡':['咖啡','coffee']
 };
 const tc=v=>typeof v==='string'?v:(v?.['zh-Hant']||v?.en||v?.['zh-Hans']||'');
@@ -20,7 +26,7 @@ export default async function handler(req,res){
  const q=String(req.query.q||'').trim(); if(!q)return res.status(400).json({error:'missing query'});
  const sourceUrl=`https://online-price-watch.consumer.org.hk/opw/search/${encodeURIComponent(q)}`;
  try{
-  const r=await fetch(DATA_URL,{headers:{'user-agent':'CEGO-Price-Radar/0.4','accept':'application/json'}}); if(!r.ok)throw new Error('feed '+r.status);
+  const r=await fetch(DATA_URL,{headers:{'user-agent':'CEGO-Price-Radar/0.5','accept':'application/json'}}); if(!r.ok)throw new Error('feed '+r.status);
   const raw=await r.json(); const items=Array.isArray(raw)?raw:(raw.products||raw.items||raw.data||[]); const needles=terms(q);
   const matched=items.filter(p=>{const h=haystack(p);return needles.some(n=>h.includes(n))&&Array.isArray(p.prices)&&p.prices.length}).slice(0,120);
   const results=[];
