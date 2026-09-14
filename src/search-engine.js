@@ -1,0 +1,6 @@
+(() => {
+  const norm=s=>(s??'').toString().normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();
+  const tokenize=s=>norm(s).split(/[\s,，/｜·()（）\-]+/).filter(Boolean);
+  function search(items,q='',filters={}){const qs=tokenize(q);return items.map(x=>{const hay=norm([x.category,x.product,x.brand,x.store,x.promo].join(' '));let score=0;for(const t of qs){if(hay===t)score+=50;else if(hay.startsWith(t))score+=25;else if(hay.includes(t))score+=12;else return null;}if(filters.store&&x.store!==filters.store)return null;if(filters.brand&&norm(x.brand)!==norm(filters.brand))return null;if(filters.maxPrice&&Number(x.price)>Number(filters.maxPrice))return null;if(filters.promoOnly&&!(Number(x.regularPrice)>Number(x.price)))return null;if(Number(x.regularPrice)>Number(x.price))score+=8;return {...x,_score:score,saving:Number(x.regularPrice||0)-Number(x.price||0)};}).filter(Boolean).sort((a,b)=>b._score-a._score||Number(a.price)-Number(b.price));}
+  window.CEGOSearch={search,norm,tokenize};
+})();
