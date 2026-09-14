@@ -1,65 +1,22 @@
-export default async function handler(req, res) {
-  const q = String(req.query.q || '').trim();
-  if (!q) return res.status(400).json({ error: 'missing query' });
-
-  const sourceUrl = `https://online-price-watch.consumer.org.hk/opw/search/${encodeURIComponent(q)}`;
-
-  try {
-    const r = await fetch(sourceUrl, {
-      headers: {
-        'user-agent': 'Mozilla/5.0 CEGOPR/0.2',
-        'accept-language': 'zh-HK,zh;q=0.9,en;q=0.8'
-      }
-    });
-    const html = await r.text();
-    const text = html
-      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/&nbsp;/g, ' ')
-      .replace(/&amp;/g, '&')
-      .replace(/&#36;/g, '$')
-      .replace(/\s+/g, ' ');
-
-    const stores = ['惠康','百佳','Market Place','屈臣氏','萬寧','AEON','大昌食品','莎莎','龍豐'];
-    const hits = [];
-    for (const store of stores) {
-      let from = 0;
-      while (true) {
-        const i = text.indexOf(store, from);
-        if (i < 0) break;
-        const chunk = text.slice(Math.max(0, i - 90), i + 180);
-        const prices = [...chunk.matchAll(/(?:HK\$|\$)?\s*(\d{1,4}(?:\.\d{1,2})?)/g)]
-          .map(m => Number(m[1]))
-          .filter(n => n >= 1 && n <= 9999);
-        if (prices.length) {
-          hits.push({ store, price: prices[0], snippet: chunk.slice(0, 220) });
-          break;
-        }
-        from = i + store.length;
-      }
-    }
-
-    const deduped = Object.values(hits.reduce((acc, x) => {
-      if (!acc[x.store] || x.price < acc[x.store].price) acc[x.store] = x;
-      return acc;
-    }, {})).sort((a,b) => a.price - b.price);
-
-    return res.status(200).json({
-      query: q,
-      source: 'Consumer Council Online Price Watch',
-      sourceUrl,
-      updatedAt: new Date().toISOString(),
-      results: deduped,
-      note: deduped.length ? '官方搜尋頁擷取測試資料；請以來源頁為準。' : '官方搜尋已接通，但此頁暫未能可靠解析價錢；可直接開來源頁核對。'
-    });
-  } catch (e) {
-    return res.status(200).json({
-      query: q,
-      source: 'Consumer Council Online Price Watch',
-      sourceUrl,
-      results: [],
-      note: '官方來源暫時無法解析，可直接開來源頁核對。'
-    });
+const DATA_URL='https://online-price-watch.consumer.org.hk/opw/opendata/pricewatch.json';
+const STORE={WELLCOME:'惠康',PARKNSHOP:'百佳',JASONS:'Market Place',WATSONS:'屈臣氏',MANNINGS:'萬寧',AEON:'AEON',DCHFOOD:'大昌食品',SASA:'莎莎',LUNGFUNG:'龍豐'};
+const z=v=>String(v??'').toLowerCase();
+const tc=v=>typeof v==='string'?v:(v?.['zh-Hant']||v?.en||v?.['zh-Hans']||'');
+export default async function handler(req,res){
+ const q=String(req.query.q||'').trim(); if(!q)return res.status(400).json({error:'missing query'});
+ const sourceUrl=`https://online-price-watch.consumer.org.hk/opw/search/${encodeURIComponent(q)}`;
+ try{
+  const r=await fetch(DATA_URL,{headers:{'user-agent':'CEGO-Price-Radar/0.3','accept':'application/json'}}); if(!r.ok)throw new Error('feed '+r.status);
+  const raw=await r.json(); const items=Array.isArray(raw)?raw:(raw.products||raw.items||raw.data||[]); const needle=z(q);
+  const matched=items.filter(p=>[tc(p.brand),tc(p.name),tc(p.cat1Name),tc(p.cat2Name),tc(p.cat3Name),p.code].some(v=>z(v).includes(needle))).slice(0,80);
+  const results=[];
+  for(const p of matched){
+   const offerMap={}; for(const o of (p.offers||[])){const code=o.supermarketCode||o.supermarket||o.code; offerMap[code]=tc(o.offers||o.offer||o.text||o);}
+   for(const x of (p.prices||[])){const code=x.supermarketCode||x.supermarket||x.code; const price=Number(x.price); if(!Number.isFinite(price)||price<=0)continue;
+    results.push({code:p.code||'',brand:tc(p.brand),product:tc(p.name),category:[tc(p.cat1Name),tc(p.cat2Name),tc(p.cat3Name)].filter(Boolean).join(' › '),store:STORE[code]||code,price,promo:offerMap[code]||'',source:'Consumer Council Open Data'});
+   }
   }
+  results.sort((a,b)=>a.product.localeCompare(b.product,'zh-Hant')||a.price-b.price);
+  return res.status(200).json({query:q,source:'Consumer Council Online Price Watch Open Data',dataUrl:DATA_URL,sourceUrl,updatedAt:new Date().toISOString(),products:matched.length,results:results.slice(0,120),note:`官方每日 Open Data｜找到 ${matched.length} 款相關貨品、${results.length} 個價格`});
+ }catch(e){return res.status(200).json({query:q,source:'Consumer Council Online Price Watch',sourceUrl,results:[],note:'官方 Open Data 暫時讀取失敗，可開來源頁核對。',error:String(e.message||e)});}
 }
