@@ -7,6 +7,18 @@ The intended loop is:
 
 **purchase recorded → purchase date confirmed → restock cycle updated → likely run-out window estimated → current price/promotion checked → useful reminder shown → new purchase resets the cycle**
 
+## Source-of-truth rule
+**My Expenses is the source of truth for whether a purchase really happened.**
+
+Price Radar activity only shows shopping intent / research. Search, viewing a product, favouriting an item, checking a branch, adding to a watchlist, or opening a promotion must **never** be treated as a completed purchase.
+
+Only one of these may confirm a real purchase:
+1. A matching item is recorded in My Expenses.
+2. A receipt scan identifies the item with high confidence.
+3. The user explicitly presses `已買` and confirms it.
+
+This distinction matters because a user may search for milk several times without buying it. The restock timer must only reset after a confirmed purchase event.
+
 ## Why the apps should stay separate
 - A bug or redesign in one app should not break the other.
 - Each app keeps its own purpose and data model.
@@ -40,6 +52,17 @@ A supermarket total by itself is never proof that a tracked item was purchased.
 
 This lets My Expenses prefill an item when the user goes from a Radar recommendation to an actual purchase.
 
+## Event separation
+Price Radar may emit intent events such as:
+- `product.searched`
+- `product.viewed`
+- `product.saved`
+- `purchase.intent`
+
+These events are useful for UX and handoff, but they do **not** change purchase history or restock timing.
+
+Only `purchase.confirmed` changes `lastPurchasedAt` and the restock cycle.
+
 ## V1 communication contract
 Use a simple purchase event format:
 
@@ -55,7 +78,7 @@ Use a simple purchase event format:
   "amount": 29.9,
   "currency": "HKD",
   "confidence": 0.98,
-  "source": "receipt-scan"
+  "source": "expenses"
 }
 ```
 
