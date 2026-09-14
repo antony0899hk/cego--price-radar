@@ -1,69 +1,115 @@
 # C•E•GO Price Radar × My Expenses integration
 
 ## Goal
-Use confirmed purchase records from My Expenses to estimate when frequently purchased goods are likely to run out, then surface a restock reminder only when it is useful.
+Keep Price Radar and My Expenses as two independent apps, but let them exchange only the minimum useful purchase/restock signals needed to build a closed loop.
 
-## Core loop
-1. User records a purchase in My Expenses.
-2. If the expense can be matched to a known Price Radar item/category, record a confirmed purchase date.
-3. Recalculate the next expected restock window using the user's own purchase interval history.
-4. Before the expected run-out window, Price Radar checks current prices/promotions.
-5. Notify only when one of these is true:
-   - likely to run out soon;
-   - worthwhile promotion appears before the usual restock date;
-   - same-brand alternative is meaningfully cheaper;
-   - current price reaches the user's target price.
-6. Once a new purchase is confirmed, reset the cycle from that date.
+The intended loop is:
 
-## Purchase evidence priority
-1. Exact item/barcode match from receipt or expense detail.
-2. Exact product name/brand match.
-3. Category match confirmed by user.
-4. Manual "已買" button in Price Radar.
+**purchase recorded → purchase date confirmed → restock cycle updated → likely run-out window estimated → current price/promotion checked → useful reminder shown → new purchase resets the cycle**
 
-Do not assume every supermarket expense means the tracked item was bought.
+## Why the apps should stay separate
+- A bug or redesign in one app should not break the other.
+- Each app keeps its own purpose and data model.
+- Communication happens through a small shared contract/API rather than direct database coupling.
+- The user can disconnect the integration at any time and both apps still work.
 
-## Suggested data model
+## Data Price Radar needs from My Expenses
+Only send item-level purchase confirmation when confidence is high enough:
+- purchaseDate
+- merchant
+- amount
+- currency
+- category/subcategory
+- item name when known
+- brand when known
+- barcode/GTIN when known
+- quantity when known
+- source: manual / receipt scan / imported expense
+- confidence score
+
+A supermarket total by itself is never proof that a tracked item was purchased.
+
+## Data My Expenses may receive from Price Radar
+- normalized product id
+- product / brand / specification
+- retailer
+- expected price or promo price
+- purchase intent date
+- favourite / restock state
+- optional source link for the observed promotion
+
+This lets My Expenses prefill an item when the user goes from a Radar recommendation to an actual purchase.
+
+## V1 communication contract
+Use a simple purchase event format:
+
 ```json
 {
-  "itemId": "milk-kowloon-dairy-946ml",
-  "name": "鮮奶",
-  "brand": "九龍維記",
-  "barcode": "",
-  "lastPurchasedAt": "2026-09-14",
-  "purchaseSource": "expenses|receipt|manual",
-  "purchaseHistory": [
-    "2026-08-31",
-    "2026-09-07",
-    "2026-09-14"
-  ],
-  "estimatedCycleDays": 7,
-  "remindBeforeDays": 2,
-  "targetPrice": null,
-  "autoLearn": true
+  "type": "purchase.confirmed",
+  "productId": "gtin-or-normalized-id",
+  "productName": "維記鮮奶 946ml",
+  "brand": "維記",
+  "purchaseDate": "2026-09-14",
+  "merchant": "Wellcome",
+  "quantity": 1,
+  "amount": 29.9,
+  "currency": "HKD",
+  "confidence": 0.98,
+  "source": "receipt-scan"
 }
 ```
 
-## Learning rule
-- Fewer than 2 confirmed purchases: use a user-selected default cycle.
-- 2–4 purchases: use median interval rather than average to reduce one-off distortion.
-- 5+ purchases: use a recency-weighted median/typical range.
-- Ignore implausible intervals and bulk-buy anomalies when detected.
-- User can always override the learned cycle.
+## Matching priority
+1. Exact barcode / GTIN match.
+2. Exact product + specification match.
+3. Brand + product name + pack size match.
+4. Category match confirmed by user.
+5. Manual `已買` confirmation in Price Radar.
 
-## Reminder examples
-- `🥛 你通常約 7 日買一次鮮奶，上次買係 6 日前。差唔多要補貨。`
-- `🏷️ 你常買嘅牙膏未到補貨期，但今日有買一送一；要唔要提早入貨？`
-- `🧻 廁紙預計 3 日內要補貨，百佳今日比你常見價低 18%。`
+Low-confidence matches must not silently reset the restock cycle.
 
-## Guardrails
-- Fresh/short shelf-life goods (fresh milk, bread, yogurt) should not encourage excessive stockpiling merely because of a promotion.
-- Snack reminders should favor user's usual brands/items and meaningful discounts, not generic category spam.
-- No reminder if confidence in the matched purchase is low.
-- A user should be able to mute an item, skip this cycle, or mark "仲有好多".
+## Restock learning rule
+- Fewer than 2 confirmed purchases: use a user-selected/default cycle.
+- 2–4 confirmed purchases: use median interval.
+- 5+ confirmed purchases: use a recent weighted typical range.
+- Ignore obvious bulk-buy or duplicate anomalies.
+- User can mark `仲有好多`, `今次唔使買`, or override the cycle.
 
-## Future integration path
-Phase 1: manual `已買` in Price Radar + stored cycle.
-Phase 2: import/share purchase events from My Expenses.
-Phase 3: receipt scan / merchant-item matching and automatic confirmation.
-Phase 4: full closed loop: purchase → consumption estimate → price check → timely restock alert → purchase confirmation.
+## Reminder logic
+Notify only when useful, for example:
+- likely to run out soon;
+- worthwhile promotion appears close to the normal restock date;
+- same-brand alternative is meaningfully cheaper;
+- target price is reached;
+- a nearby branch has several tracked items on worthwhile promotion at once.
+
+Fresh/short shelf-life goods should not encourage excessive stockpiling merely because of a discount.
+
+## Recommended architecture
+### Phase 1 — explicit handoff
+- Shared JSON event schema.
+- `已買` / `記錄到 My Expenses` buttons.
+- Deep-link handoff between the two web apps.
+- Local-only data remains inside each app.
+
+### Phase 2 — real two-way sync
+- Lightweight shared backend/API keyed to the same user.
+- My Expenses sends purchase-confirmed events.
+- Price Radar sends purchase-intent/product metadata.
+- Each app stores its own full data; shared service stores only integration events and IDs.
+
+### Phase 3 — receipt/item automation
+- Receipt scan identifies item-level purchases.
+- Barcode/product normalization improves matching.
+- High-confidence purchases update Price Radar automatically.
+- Ambiguous matches are queued for one-tap confirmation.
+
+## Privacy/minimization rule
+Price Radar does not need access to the user's full expense history. It should receive only the purchase-confirmation fields required for restock logic. My Expenses remains the source of truth for the full financial record.
+
+## Target UX
+Example:
+
+`🥛 維記鮮奶 946ml｜上次 9/14 買｜平時約 6–7 日補貨｜預計差唔多用晒｜附近 1km 有 2 間店做優惠`
+
+The user should not have to manually maintain two separate purchase histories.
