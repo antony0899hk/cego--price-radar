@@ -1,0 +1,67 @@
+{
+  "version": "0.8.0",
+  "benchmarkDate": "2026-09-16",
+  "retailer": "惠康",
+  "purpose": "Ground-truth regression test only. Field photos verify what was visible in-store; they are not a production price feed and must not be generalized to all branches.",
+  "cases": [
+    {
+      "id": "wellcome-coke-gift-202609",
+      "type": "store-promotion",
+      "query": "汽水",
+      "expected": {
+        "mechanic": "buy-get",
+        "buy": "2排指定可口可樂／雪碧／玉泉／芬達8罐裝汽水或梳打水",
+        "giftStatedValueHKD": 52,
+        "validFrom": "2026-09-11",
+        "validTo": "2026-09-17",
+        "storeOnly": true
+      },
+      "publicCorroboration": "media",
+      "fieldPhotoVerified": true
+    },
+    {
+      "id": "wellcome-sensodyne-gift-202609",
+      "type": "store-promotion",
+      "query": "牙膏",
+      "expected": {
+        "mechanic": "buy-get",
+        "buy": "4支舒適達單支裝牙膏100克",
+        "giftStatedValueHKD": 296,
+        "validFrom": "2026-09-11",
+        "validTo": "2026-09-17",
+        "storeOnly": true
+      },
+      "publicCorroboration": "media",
+      "fieldPhotoVerified": true
+    },
+    {
+      "id": "wellcome-greatwall-gift-202609",
+      "type": "store-promotion",
+      "query": "午餐肉",
+      "expected": {
+        "mechanic": "buy-get",
+        "buy": "2套長城牌火腿豬肉3罐裝",
+        "giftStatedValueHKD": 38,
+        "validFrom": "2026-09-11",
+        "validTo": "2026-09-17",
+        "storeOnly": true
+      },
+      "publicCorroboration": "media",
+      "fieldPhotoVerified": true
+    },
+    {
+      "id": "wellcome-meadows-freshmilk-multibuy-20260916",
+      "type": "shelf-multibuy",
+      "query": "鮮奶",
+      "expected": {
+        "product": "Meadows Full Cream Fresh Milk 1L",
+        "bundleQuantity": 2,
+        "bundlePriceHKD": 38,
+        "effectiveUnitPriceHKD": 19
+      },
+      "publicCorroboration": null,
+      "fieldPhotoVerified": true,
+      "productionRule": "Do not publish as chain-wide or current branch price unless a public source independently confirms it. Keep only as parser/regression benchmark."
+    }
+  ]
+}
