@@ -13,6 +13,7 @@ const sources=[
  {id:'circlek',name:'OK便利店',type:'official-promotion',status:'promo-only',url:'https://www.circlek.hk/hk/',promoUrl:'https://www.circlek.hk/hk/hotpicks/deals',extraPromoUrls:['https://www.circlek.hk/highlights/'],note:'已接官方 Hot Picks／好抵呀及最新推廣來源；未有可靠逐件結構化價格時只作優惠證據。'},
  {id:'aeon',name:'AEON',type:'structured-price',status:'live',url:'https://www.aeonstores.com.hk/',note:'價格比較由消委會公開資料提供；官方活動頁可作額外優惠證據。'},
  {id:'lungfung',name:'龍豐',type:'structured-price',status:'live',url:'https://www.lungfung.hk/',note:'價格比較由消委會公開資料提供。'},
- {id:'sasa',name:'莎莎',type:'structured-price',status:'live',url:'https://www.sasa.com.hk/',note:'價格比較由消委會公開資料提供。'}
+ {id:'sasa',name:'莎莎',type:'structured-price',status:'live',url:'https://www.sasa.com.hk/',note:'價格比較由消委會公開資料提供。'},
+ {id:'hktvmall',name:'HKTVmall',type:'marketplace-price',status:'research',url:'https://www.hktvmall.com/',note:'多商戶 marketplace；同款商品可能由不同商戶以不同包裝、售價及優惠出售。公開商品頁可見售價、特價、包裝規格及部分多件／換購優惠；舊 Open Databank 自 2023-04-11 起暫停升級，未確認可穩定使用的公開逐件即時 API 前，不標示為 live source。'}
 ];
-export default function handler(req,res){res.status(200).json({version:'0.8.0',updatedAt:new Date().toISOString(),sources,livePriceRetailers:['惠康','百佳','Market Place','屈臣氏','萬寧','AEON','大昌食品','莎莎','龍豐'],promoOnlyRetailers:['優品360','759阿信屋','7-Eleven','OK便利店'],promotionEvidence:['零售商官方推廣','每週優惠文字版','公開優惠報道'],rule:'官方來源優先；文字版及媒體只作補漏／交叉核對。未有可核實逐件價格或指定分店證據時，不把推廣頁當成即時貨架價。'});}
+export default function handler(req,res){res.status(200).json({version:'0.8.0',updatedAt:new Date().toISOString(),sources,livePriceRetailers:['惠康','百佳','Market Place','屈臣氏','萬寧','AEON','大昌食品','莎莎','龍豐'],promoOnlyRetailers:['優品360','759阿信屋','7-Eleven','OK便利店'],marketplaceResearch:['HKTVmall'],promotionEvidence:['零售商官方推廣','每週優惠文字版','公開優惠報道'],rule:'官方來源優先；文字版及媒體只作補漏／交叉核對。未有可核實逐件價格或指定分店證據時，不把推廣頁當成即時貨架價；marketplace 同款商品須按商戶及包裝規格分開比較。'});}
