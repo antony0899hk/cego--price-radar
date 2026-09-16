@@ -2,23 +2,38 @@
 
 Version: 0.9.0
 
-## Product rule
-HKTVmall is a comparison source, not a general discovery catalogue.
+## Anchor-retailer rule
+HKTVmall is allowed in Price Radar and New Arrival Radar, but its searchable / publishable product universe is defined by four anchor retailers only:
 
-CEGO must not search, publish or surface an HKTVmall-only product merely because it exists on HKTVmall. An HKTVmall offer becomes eligible only when CEGO has a meaningful comparison candidate from another supported retailer.
+1. Wellcome 惠康
+2. PARKnSHOP 百佳
+3. Mannings 萬寧
+4. Watsons 屈臣氏
+
+CEGO first builds the eligible category / product universe from these four retailers. HKTVmall is then searched only for products or product types that fall inside that universe.
+
+This is intentionally stricter than using every CEGO-supported retailer as a gate.
+
+## What this means
+- Grocery, drinks, snacks, milk, frozen food, household goods etc. are eligible when they are product types carried by Wellcome / PARKnSHOP.
+- Skincare, masks, oral care, shampoo, health / personal-care products etc. are eligible when they are product types carried by Mannings / Watsons.
+- Pet food / pet supplies are eligible if the product type is carried by at least one of the four anchor retailers.
+- Disposable / travel underwear is eligible because it is sold by anchor retailers.
+- General fashion clothing is excluded merely because HKTVmall sells it. If the product type is not carried by any of the four anchor retailers, CEGO does not search or publish it from HKTVmall.
+- The same exclusion applies to unrelated electronics, furniture and other HKTVmall-only catalogue areas unless a future anchor-retailer rule explicitly brings that product type into scope.
+
+The gate is category / product-type based first, then exact SKU / brand / specification matching is used for comparison quality.
 
 ## Eligibility
-An HKTVmall item may enter Price Radar when at least one of these is true:
+An HKTVmall item may enter CEGO when both are true:
 
-1. Exact same SKU / GTIN exists at another supported retailer.
-2. Same normalized product + brand + specification exists at another supported retailer.
-3. For category browsing, the item belongs to a category with comparable offers from supported retailers and the comparison is meaningful.
+1. Its product type is inside the four-anchor-retailer universe; and
+2. CEGO can present a useful comparison or discovery context without turning Price Radar into a general HKTVmall catalogue.
 
-Examples:
-- Grocery / fresh milk / snacks: compare with Wellcome, PARKnSHOP, AEON, Market Place etc.
-- Skincare / masks / personal care: compare with Mannings, Watsons, Lung Fung, Sasa etc.
-- Pet food: compare when another supported supermarket / retailer carries the same or meaningfully comparable product.
-- Electronics / fashion / furniture that have no CEGO retailer comparison: exclude.
+Preferred comparison levels:
+- exact same SKU / GTIN;
+- same normalized product + brand + specification;
+- same meaningful product type for category browsing when exact SKU is unavailable.
 
 ## Marketplace handling
 HKTVmall offers must retain merchant identity. Same product sold by Merchant A/B/C is not collapsed into one HKTVmall price.
@@ -34,9 +49,17 @@ Store fields where available:
 - firstSeenAt / lastSeenAt
 
 ## New-arrival rule
-HKTVmall-only new arrivals are excluded. A new HKTVmall item can appear in New Arrival Radar only after it passes the comparison gate above.
+HKTVmall DOES participate in New Arrival Radar.
 
-This keeps New Arrival Radar focused on products that CEGO can actually compare rather than becoming a general HKTVmall catalogue.
+However, HKTVmall New Arrival Radar is limited to the product universe established by Wellcome, PARKnSHOP, Mannings and Watsons. A newly listed HKTVmall product outside those four retailers' product types is ignored rather than surfaced as a CEGO new arrival.
+
+Therefore:
+- a new snack, milk, face mask, shampoo, pet-food item or disposable underwear may qualify when its product type exists at an anchor retailer;
+- a normal fashion shirt does not qualify just because it is newly listed on HKTVmall.
+
+`firstSeenAt` means CEGO first detected the HKTVmall listing. It must not be presented as the manufacturer's official launch date unless an official source confirms that.
 
 ## UX
-Show HKTVmall as additional merchant offers under an already comparable product. If multiple HKTVmall merchants sell the item, show each merchant separately and provide the exact merchant/product link when available.
+Show HKTVmall as marketplace offers inside eligible CEGO product categories. If multiple HKTVmall merchants sell the item, show each merchant separately and provide the exact merchant/product link when available.
+
+For New Arrival Radar, label HKTVmall records as `HKTVmall 新上架 / CEGO 首次發現` unless an official launch source supports the stronger `新品上市` wording.
