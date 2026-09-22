@@ -37,7 +37,7 @@ function mechanics(text){const x=norm(text),out=[];if(/買.{0,30}送/.test(x))ou
 function confidence(tier){return tier==='official'?0.95:tier==='secondary-structured'?0.82:0.74}
 async function inspect(source,needles){
  try{
-  const r=await fetch(source.url,{headers:{'user-agent':'Mozilla/5.0 CEGO-Price-Radar/0.8','accept':'text/html,application/xhtml+xml'},redirect:'follow'});if(!r.ok)throw new Error('HTTP '+r.status);
+  const r=await fetch(source.url,{headers:{'user-agent':'Mozilla/5.0 CEGO-Price-Radar/0.9','accept':'text/html,application/xhtml+xml'},redirect:'follow',signal:AbortSignal.timeout(3500)});if(!r.ok)throw new Error('HTTP '+r.status);
   const text=strip(await r.text()),hits=snippets(text,needles),v=validity(text),today=hkToday();
   return {...source,status:'ok',matched:hits.length>0,snippets:hits,...v,active:!v.validFrom||!v.validTo||(today>=v.validFrom&&today<=v.validTo),mechanics:mechanics(hits.join(' ')),confidence:confidence(source.tier)};
  }catch(e){return {...source,status:'unavailable',matched:false,snippets:[],validFrom:null,validTo:null,active:false,mechanics:[],confidence:confidence(source.tier),error:String(e.message||e)}}
@@ -47,5 +47,5 @@ export default async function handler(req,res){
  const needles=terms(q),checked=await Promise.all(SOURCES.map(s=>inspect(s,needles)));
  const results=checked.filter(x=>x.matched&&x.active).sort((a,b)=>b.confidence-a.confidence).map(x=>({store:x.store,sourceId:x.id,scope:x.scope,sourceTier:x.tier,channel:x.channel,url:x.url,evidence:x.snippets,validFrom:x.validFrom,validTo:x.validTo,mechanics:x.mechanics,confidence:x.confidence,priceScope:'public-promotion',branchConfirmed:false}));
  res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=1800');
- return res.status(200).json({version:'0.8.0',query:q,updatedAt:new Date().toISOString(),results,checked:checked.map(({id,store,scope,tier,url,status,matched,active,validFrom,validTo})=>({id,store,scope,tier,url,status,matched,active,validFrom,validTo})),rule:'公開優惠情報只作門市推廣證據；官方來源優先，文字轉錄及媒體用作補漏／交叉核對。未有指定分店證據時，不當成該分店即時貨架價或庫存。'});
+ return res.status(200).json({version:'0.9.0',query:q,updatedAt:new Date().toISOString(),results,checked:checked.map(({id,store,scope,tier,url,status,matched,active,validFrom,validTo})=>({id,store,scope,tier,url,status,matched,active,validFrom,validTo})),rule:'公開優惠情報只作門市推廣證據；官方來源優先，文字轉錄及媒體用作補漏／交叉核對。未有指定分店證據時，不當成該分店即時貨架價或庫存。'});
 }
