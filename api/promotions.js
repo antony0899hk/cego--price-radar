@@ -1,3 +1,10 @@
+import fs from 'fs';
+import path from 'path';
+
+const CACHE_FILE=path.join(process.cwd(),'data','promotions-cache.json');
+function readCache(){try{return JSON.parse(fs.readFileSync(CACHE_FILE,'utf8'))}catch{return {results:[],updatedAt:null}}}
+function cacheMatches(rows,needles){return (rows||[]).filter(x=>{const hay=norm([x.store,x.scope,...(x.evidence||[])].join(' '));return needles.some(n=>hay.includes(norm(n)))})}
+
 const SOURCES=[
  {id:'wellcome-weekly',store:'惠康',url:'https://www.wellcome.com.hk/zh-hant/wellcome/d/UYotKNFg7BGJ.html',scope:'官方本週廣告',tier:'official',channel:'mixed'},
  {id:'bestmart360',store:'優品360',url:'https://www.bestmart360.com/promo',scope:'官方香港推廣',tier:'official',channel:'physical-promo'},
@@ -45,7 +52,9 @@ async function inspect(source,needles){
 export default async function handler(req,res){
  const q=String(req.query.q||'').trim();if(!q)return res.status(400).json({error:'missing query'});
  const needles=terms(q),checked=await Promise.all(SOURCES.map(s=>inspect(s,needles)));
- const results=checked.filter(x=>x.matched&&x.active).sort((a,b)=>b.confidence-a.confidence).map(x=>({store:x.store,sourceId:x.id,scope:x.scope,sourceTier:x.tier,channel:x.channel,url:x.url,evidence:x.snippets,validFrom:x.validFrom,validTo:x.validTo,mechanics:x.mechanics,confidence:x.confidence,priceScope:'public-promotion',branchConfirmed:false}));
+ let results=checked.filter(x=>x.matched&&x.active).sort((a,b)=>b.confidence-a.confidence).map(x=>({store:x.store,sourceId:x.id,scope:x.scope,sourceTier:x.tier,channel:x.channel,url:x.url,evidence:x.snippets,validFrom:x.validFrom,validTo:x.validTo,mechanics:x.mechanics,confidence:x.confidence,priceScope:'public-promotion',branchConfirmed:false}));
+ const cache=readCache(), liveAvailable=checked.some(x=>x.status==='ok'); let dataMode='live';
+ if(!results.length){const cached=cacheMatches(cache.results,needles);if(cached.length){results=cached;dataMode='cache'}else if(!liveAvailable)dataMode='unavailable'}
  res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=1800');
- return res.status(200).json({version:'0.9.0',query:q,updatedAt:new Date().toISOString(),results,checked:checked.map(({id,store,scope,tier,url,status,matched,active,validFrom,validTo})=>({id,store,scope,tier,url,status,matched,active,validFrom,validTo})),rule:'公開優惠情報只作門市推廣證據；官方來源優先，文字轉錄及媒體用作補漏／交叉核對。未有指定分店證據時，不當成該分店即時貨架價或庫存。'});
+ return res.status(200).json({version:'0.9.0',query:q,updatedAt:new Date().toISOString(),dataMode,cacheUpdatedAt:cache.updatedAt||null,results,checked:checked.map(({id,store,scope,tier,url,status,matched,active,validFrom,validTo})=>({id,store,scope,tier,url,status,matched,active,validFrom,validTo})),rule:'公開優惠情報只作門市推廣證據；官方來源優先，文字轉錄及媒體用作補漏／交叉核對。未有指定分店證據時，不當成該分店即時貨架價或庫存。'});
 }
