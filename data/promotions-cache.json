@@ -1,0 +1,6 @@
+{
+  "version": "0.9.0",
+  "updatedAt": "2026-10-02T10:45:00+08:00",
+  "results": [],
+  "note": "CEGO promotion cache. Refreshed data is preferred; when live sources are unavailable the app may use the last successful cache. Empty cache must never be presented as a confirmed absence of market promotions."
+}
