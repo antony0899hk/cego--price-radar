@@ -1,0 +1,75 @@
+name: Refresh Promotion Cache
+
+on:
+  schedule:
+    # GitHub Actions cron is UTC. 22:00 UTC = 06:00 Hong Kong (UTC+8).
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh CEGO promotion cache
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, re, urllib.request, datetime, html as htmllib
+          from pathlib import Path
+
+          sources = [
+            ("惠康","wellcome-weekly","官方本週廣告","official","https://www.wellcome.com.hk/zh-hant/wellcome/d/UYotKNFg7BGJ.html"),
+            ("優品360","bestmart360","官方香港推廣","official","https://www.bestmart360.com/promo"),
+            ("OK便利店","circlek","官方好抵呀","official","https://www.circlek.hk/hk/hotpicks/deals"),
+            ("7-Eleven","7eleven-10","官方 $10 一口價","official","https://www.7-eleven.com.hk/zh/Promotions/10-Picks"),
+            ("惠康","hksb-wellcome","每週優惠文字版","secondary-structured","https://iac-tdls.hksb.org.hk/web_info_detail.php?content=supermarket_wellcome"),
+            ("百佳","hksb-parknshop","每週優惠文字版","secondary-structured","https://iac-tdls.hksb.org.hk/web_info_detail.php?content=supermarket_parknshop"),
+          ]
+          keywords = ["優惠","特價","買","送","折","$","鮮奶","飲品","零食","咖啡","牙膏","廁紙","午餐肉"]
+          old_path=Path("data/promotions-cache.json")
+          try: old=json.loads(old_path.read_text(encoding="utf-8"))
+          except: old={"results":[]}
+          rows=[]
+          headers={"User-Agent":"Mozilla/5.0 CEGO-Price-Radar/0.9"}
+          for store,sid,scope,tier,url in sources:
+            try:
+              req=urllib.request.Request(url,headers=headers)
+              raw=urllib.request.urlopen(req,timeout=12).read().decode("utf-8","ignore")
+              text=re.sub(r"<script[\\s\\S]*?</script>|<style[\\s\\S]*?</style>"," ",raw,flags=re.I)
+              text=htmllib.unescape(re.sub(r"<[^>]+>"," ",text))
+              text=re.sub(r"\\s+"," ",text).strip()
+              snippets=[]
+              low=text.lower()
+              for kw in keywords:
+                pos=low.find(kw.lower())
+                if pos>=0:
+                  s=text[max(0,pos-80):min(len(text),pos+260)].strip()
+                  if len(s)>25 and s not in snippets: snippets.append(s)
+                if len(snippets)>=5: break
+              if snippets:
+                rows.append({"store":store,"sourceId":sid,"scope":scope,"sourceTier":tier,"channel":"physical-promo","url":url,"evidence":snippets,"validFrom":None,"validTo":None,"mechanisms":[],"confidence":0.95 if tier=="official" else 0.82,"priceScope":"public-promotion","branchConfirmed":False})
+            except Exception as e:
+              print(f"{sid}: {e}")
+          # Never replace a useful cache with an empty scrape.
+          if not rows and old.get("results"):
+            print("No fresh rows; preserving previous cache")
+            raise SystemExit(0)
+          out={"version":"0.9.0","updatedAt":datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(),"results":rows,"note":"Daily 06:00 Hong Kong promotion cache. Public promotion evidence only; not branch-specific shelf price or inventory."}
+          old_path.write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print("cached rows:",len(rows))
+          PY
+      - name: Commit cache if changed
+        run: |
+          if git diff --quiet -- data/promotions-cache.json; then
+            echo "No cache change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/promotions-cache.json
+          git commit -m "Refresh daily promotion cache"
+          git push
