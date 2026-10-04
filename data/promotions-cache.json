@@ -1,86 +1,90 @@
 {
   "version": "0.9.0",
-  "updatedAt": "2026-10-04T08:14:27.876151+08:00",
+  "updatedAt": "2026-10-04T23:14:00+08:00",
   "results": [
     {
       "store": "惠康",
-      "sourceId": "wellcome-weekly",
-      "scope": "官方本週廣告",
+      "sourceId": "wellcome-live",
+      "scope": "官方網店現行優惠",
       "sourceTier": "official",
-      "channel": "physical-promo",
-      "url": "https://www.wellcome.com.hk/zh-hant/wellcome/d/UYotKNFg7BGJ.html",
+      "channel": "online-promo",
+      "url": "https://www.wellcome.com.hk/",
       "evidence": [
-        "|    價值 \n        :  $0     賬戶                我的電子銀包    ( 0 )    ( 0 )         我的優惠券    ( 0 )    ( 0 )         我的訂單    ( 0 )    ( 0 )         安全登出    ( 0 )    ( 0 )         客戶幫助           Market Place 網購客戶幫助中心            門店位置\n           EN | 中          \n            EN\n            \n            繁中",
-        "熱門搜尋                       送貨   \n                    \n                                                         \n                0\n                              分類                 原箱優惠               水果及蔬菜               肉類及海鮮               米, 油及麵               乳製品,冷凍食品及蛋類               早餐",
-        "註冊 | 登入      積分 \n        :  0      |    價值 \n        :  $0     賬戶                我的電子銀包    ( 0 )    ( 0 )         我的優惠券    ( 0 )    ( 0 )         我的訂單    ( 0 )    ( 0 )         安全登出    ( 0 )    ( 0 )         客戶幫助           Market Place 網購客戶幫助中心            門店位置\n           EN | 中          \n            EN",
-        "\"急凍肉丸\",\"急凍海鮮\",\"急凍蝦、蟹及其他殼類海鮮\",\"急凍魚柳\",\"其他急凍海鮮\",\"海鮮丸\",\"蟹棒\",\"其他丸類\",\"素食肉類及海鮮\",\"植物肉\",\"鮮奶\",\"牛奶\",\"保鮮牛奶\",\"保鮮豆奶\",\"保鮮植物奶\",\"豆奶粉及無乳奶粉\",\"淡奶及奶精\",\"煉奶\",\"奶粉\",\"乳酪飲品\",\"蛋類\",\"豆腐花\",\"即食餐類\",\"冷凍果汁及飲品\",\"冰沙及奶昔\",\"其他冷凍飲品\",\"冷榨果汁\",\"牛油,塗抹醬及人造牛油\",\"牛油\",\"塗抹醬及人造牛油\",\"亞洲甜品\",\"沾醬\",\"橄欖\",\"抓餅\",\"餃子及點心\",\"餃子\",\"雲吞\",\"冰粒\",\"紫菜\",\"薄荷糖\",\"節日小食\",\"蘋果酒、雞尾酒、即飲葡萄酒和烈酒\",\"綠茶\",\"有氣水\",\"運動飲品\",\"能量飲品\",\"調味料",
-        "早餐及麵包               急凍食品               朱古力，薯片，零食               酒類               飲品               罐頭、醃製品及湯               調味料及醬料               生活用品               廚具及餐桌用品               個人護理               母嬰用品               醫藥保健               戶外及旅行用品               貓貓專區               狗狗專區               塑身保健"
+        "熱門優惠包括原箱優惠、品牌優惠、獅球嘜花生油88折、罐頭優惠裝9折。",
+        "三得利CC檸檬 6 x 320ML：2件$40；頁面亦顯示新人價優惠。",
+        "指定維他命／保健食品推廣送$50優惠券。"
       ],
       "validFrom": null,
       "validTo": null,
-      "mechanisms": [],
+      "mechanisms": [
+        "multi-buy",
+        "discount",
+        "coupon"
+      ],
       "confidence": 0.95,
       "priceScope": "public-promotion",
       "branchConfirmed": false
     },
     {
       "store": "優品360",
-      "sourceId": "bestmart360",
+      "sourceId": "bestmart360-live",
       "scope": "官方香港推廣",
       "sourceTier": "official",
       "channel": "physical-promo",
-      "url": "https://www.bestmart360.com/promo",
+      "url": "https://www.bestmart360.com/promo-hk",
       "evidence": [
-        "會員價 \n               \n             滋味優惠，會員獨享！享受多款會員價禮遇！ \n           \n         \n                 \n           \n             急凍優鮮餸 \n               \n             環球細選好品質，於指定分店可以買到優質急凍食材，煮意添滋味！ \n           \n         \n                 \n           \n             【限時優惠升級賞📣】 \n               \n             而",
-        "！本週精選熱賣登場 🤩 \n           \n         \n                 \n           \n              一買即換 \n               \n             多款熱搶貨一買即換！每購買任何產品1件，就可以換購1款。 \n           \n         \n                 \n           \n             25/9 有優品，友好Buy \n               \n             有優品，就友好Buy！本週精選熱賣登場 🤩",
-        "【限時優惠升級賞📣】 \n               \n             而家買滿$100即送💵$15現金優惠券！ 買得愈多，送得愈多！🛍️ 優惠期有限，立即行動喇！ \n           \n         \n                 \n           \n             茶花超值家品好物 \n               \n             ✨煮婦恩物登場！即睇茶花廚房家品 \n           \n         \n                 \n           \n             購物現金券",
-        "【逢星期二長者優惠日】公公婆婆只要出示長者咭，購買任何Familie，Pando或Kalbarri產品即享95折 \n           \n         \n                 \n           \n             成為Club 360° 會員享盡精彩優惠！ \n               \n             會員每週一雙倍積分 | 金卡會員每月1/11/21號滿$120即享95折優惠 \n           \n         \n                 \n           \n             立即加入!",
-        "EN \n\n \n   \n   \n \n\n \n  // Language\n  $('.language_a').on('click', function(e) {\n    e.preventDefault();\n\n    $('#form-language2 input[name=\\'code\\']').attr('value', $(this).attr('href'));\n\n    $('#form-language2').submit();\n  });\n \n\n\n\n\n\n\n             下載APP -->\n                         下載APP"
+        "本週精選熱賣推廣正在展示。",
+        "限時優惠：買滿$100送$15現金優惠券。",
+        "會員價及多款會員優惠正在展示。"
       ],
       "validFrom": null,
       "validTo": null,
-      "mechanisms": [],
+      "mechanisms": [
+        "spend-threshold",
+        "member"
+      ],
       "confidence": 0.95,
       "priceScope": "public-promotion",
       "branchConfirmed": false
     },
     {
       "store": "OK便利店",
-      "sourceId": "circlek",
-      "scope": "官方好抵呀",
+      "sourceId": "circlek-live",
+      "scope": "官方 Highlights",
       "sourceTier": "official",
       "channel": "physical-promo",
-      "url": "https://www.circlek.hk/hk/hotpicks/deals",
+      "url": "https://www.circlek.hk/hk/highlights",
       "evidence": [
-        "hk';\nFFJS.server_name = 'www.circlek.hk';\nFFJS.url_root = '';\n\n \n \n \n -->\n \n\n \n\n$(document).ready(function() {\n\n\t$('body').append('    ');\n\n\t  function myerror(_message,_url,_line)  \n\t  {  \n\t\t alert(\"error:\" + _message  \n\t\t\t  +\"\\nurl:\" + _url  \n\t\t\t  +\"\\nline:\" + _line  \n\t\t );  \n\t  \n\t\t return true;   \n\t  }  \n\t   \n\t  window.onerror = myerro"
+        "官方 Highlights 現時展示抵食套餐、飲品及新品等推廣入口。"
       ],
       "validFrom": null,
       "validTo": null,
-      "mechanisms": [],
-      "confidence": 0.95,
+      "mechanisms": [
+        "bundle"
+      ],
+      "confidence": 0.9,
       "priceScope": "public-promotion",
       "branchConfirmed": false
     },
     {
       "store": "7-Eleven",
-      "sourceId": "7eleven-10",
+      "sourceId": "7eleven-live",
       "scope": "官方 $10 一口價",
       "sourceTier": "official",
       "channel": "physical-promo",
       "url": "https://www.7-eleven.com.hk/zh/Promotions/10-Picks",
       "evidence": [
-        "信用卡及電子錢包優惠 \n               \n                       \n                                         最新產品 \n               \n         \n  \n               \n                       \n                                                                     便利服務",
-        "購買現金券 \n               \n                       \n                                         到會訂購 \n               \n                       \n                                         廣告查詢",
-        "ment,'script','dataLayer','GTM-WG4M543'); \n     \n\n     \n \n \n \n \n \n \n \n \n \n\n     $10 一口價 | 7-Eleven® Hong Kong \n     \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n    \n\n     \n      \n     \n    window.dataLayer = window.dataLayer || [];\n    function gtag(){dataLayer.push(arguments);}\n    gtag('js",
-        "啡 We Green咖啡渣再生企劃 \n                         \n                       \n                                         循環經濟 \n               \n         \n  \n               \n                       \n                                         企業社會責任及可持續發展"
+        "任何分店見到 $10 標示的指定產品，以一口價 $10 發售；包括自家品牌及限時精選產品。"
       ],
       "validFrom": null,
       "validTo": null,
-      "mechanisms": [],
+      "mechanisms": [
+        "fixed-price"
+      ],
       "confidence": 0.95,
       "priceScope": "public-promotion",
       "branchConfirmed": false
     }
   ],
-  "note": "Daily 06:00 Hong Kong promotion cache. Public promotion evidence only; not branch-specific shelf price or inventory."
+  "note": "Manual verified seed from public retailer pages on 2026-10-04. Daily 06:00 Hong Kong workflow should refresh. Promotion evidence is not branch-specific shelf price or inventory."
 }
