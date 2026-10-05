@@ -21,7 +21,7 @@
 </main>
 <nav class="bottom"><button class="active" data-scroll="resultsSection">⌕<br>格價</button><button id="bottomWatch">♡<br>常買</button><a href="nearby.html">⌖<br>附近</a><a href="cart.html">🛒<br><span id="cartNav">購物車</span></a></nav><div class="version">v0.10.0</div>
 <script>
-const $=s=>document.querySelector(s),WATCH='cego-price-watchlist',BOOK='cego-price-bookmarks-v1',CART='cego-price-cart-v1',PROMO_PAGE=10;
+const $=s=>document.querySelector(s),WATCH='cego-price-watchlist',BOOK='cego-price-bookmarks-v1',CART='cego-price-cart-v1',PROMO_PAGE=10; const DEFAULT_PROMO='飲品';
 const CATS=[
  {icon:'🍚',name:'食品飲品',desc:'新鮮、糧油、飲品、零食',items:['鮮奶','乳酪','芝士','麵包','雞蛋','米','麵','食油','醬料','罐頭','急凍食品','水','汽水','果汁','茶','咖啡','零食','薯片','餅乾','朱古力']},
  {icon:'🏠',name:'家庭家居',desc:'紙品、清潔、洗衣、廚房',items:['廁紙','紙巾','廚房紙','洗衣液','洗衣粉','柔順劑','洗潔精','清潔劑','垃圾袋','保鮮紙','保鮮袋']},
@@ -50,7 +50,7 @@ function promoCard(x){return `<div class="product physical"><div class="physical
 function renderPromoPage(){const el=$('#promoResults'),visible=promoRows.slice(0,promoShown);el.innerHTML=visible.map(promoCard).join('')+(promoShown<promoRows.length?`<button class="moreBtn" onclick="showMorePromos()">顯示更多（仲有 ${promoRows.length-promoShown} 個）↓</button>`:`<div class="hint" style="text-align:center;margin-top:12px">已顯示全部 ${promoRows.length} 個優惠</div>`)}
 window.showMorePromos=()=>{promoShown=Math.min(promoShown+PROMO_PAGE,promoRows.length);renderPromoPage()};
 document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>runQuery(b.dataset.q));document.querySelectorAll('[data-scroll]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.scroll).scrollIntoView({behavior:'smooth'}));
-$('#todayBtn').onclick=()=>{openPanel('promoSection',$('#todayBtn'));const q=$('#q').value.trim();loadPromos(q||'飲品')};
+$('#todayBtn').onclick=()=>{openPanel('promoSection',$('#todayBtn'));const q=$('#q').value.trim();loadPromos(q||DEFAULT_PROMO)};
 $('#newArrival').onclick=()=>{openPanel('newSection',$('#newArrival'));loadNewArrivals()};$('#categoryBtn').onclick=()=>openPanel('categorySection',$('#categoryBtn'));$('#allCat').onclick=()=>openPanel('categorySection',$('#categoryBtn'));$('#watchBtn').onclick=()=>openPanel('watchSection',$('#watchBtn'));$('#bottomWatch').onclick=()=>openPanel('watchSection',$('#watchBtn'));
 document.querySelectorAll('[data-deal]').forEach(b=>b.onclick=()=>{const q=b.dataset.deal;$('#q').value=q;loadPromos(q)});
 $('#savedCount').onclick=()=>location.href='cart.html';$('#go').onclick=search;$('#q').addEventListener('keydown',e=>{if(e.key==='Enter')search()});
@@ -58,5 +58,5 @@ async function loadPrices(q){const el=$('#results');try{const r=await fetch('/ap
 async function loadPromos(q){const el=$('#promoResults');promoRows=[];promoShown=0;renderPromoTicker();el.innerHTML=`<div class="loading">搜尋「${esc(q)}」今日優惠…</div>`;try{const r=await fetch('/api/promotions?q='+encodeURIComponent(q),{cache:'no-store'}),d=await r.json(),rows=d.results||[];if(!rows.length){renderPromoTicker();el.innerHTML=`<div class="empty">暫時未找到與「${esc(q)}」直接相關、仍有效嘅公開優惠</div>`;return}promoRows=rows;promoShown=Math.min(PROMO_PAGE,promoRows.length);renderPromoTicker();renderPromoPage();if(d.dataMode==='cache')el.insertAdjacentHTML('afterbegin','<div class="hint" style="padding:0 0 10px">🕘 即時來源暫時不穩，顯示最近一次有效優惠資料</div>')}catch(e){renderPromoTicker();el.innerHTML='<div class="empty">⚠️ 今日優惠資料暫時未能取得，請稍後再試</div>'}}
 async function loadNewArrivals(){const el=$('#newResults');el.innerHTML='<div class="loading">讀取最近首次發現商品…</div>';try{const r=await fetch('/api/new-arrivals',{cache:'no-store'}),d=await r.json(),rows=d.results||[];if(!rows.length){el.innerHTML='<div class="empty">暫時未有足夠歷史快照判定新上架；每日資料更新後會自動累積。</div>';return}el.innerHTML=rows.slice(0,30).map(x=>`<div class="product"><div class="productHead"><div><div class="ptitle">${esc(x.brand)} ${esc(x.product)}</div><div class="cat">${esc(x.category||'生活用品')}</div></div><span class="badge">CEGO 首次發現</span></div><div class="hint" style="margin-top:7px">${esc(x.store||'')} · 首次見到 ${esc(x.firstSeenAt||'')}</div></div>`).join('')}catch(e){el.innerHTML='<div class="empty">⚠️ 新上架資料暫時未能取得</div>'}}
 async function search(){const q=$('#q').value.trim();if(!q)return;$('#watchName').value=q;$('#results').innerHTML='<div class="loading">正在格價…</div>';await Promise.all([loadPrices(q),loadPromos(q)])}
-renderCategories();renderWatch();updateCounts();
+renderCategories();renderWatch();updateCounts();openPanel('promoSection',$('#todayBtn'));loadPromos(DEFAULT_PROMO);
 </script></body></html>
