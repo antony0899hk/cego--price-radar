@@ -31,14 +31,16 @@ const ALIASES={
 const norm=s=>String(s||'').toLowerCase().replace(/\s+/g,' ').trim();
 const decode=s=>s.replace(/&nbsp;|&#160;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;|&apos;/gi,"'").replace(/&lt;/gi,'<').replace(/&gt;/gi,'>');
 const strip=html=>decode(html.replace(/<script[\s\S]*?<\/script>/gi,' ').replace(/<style[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ')).trim();
-function imageFor(html,base,needles){
+function imageFor(html,base,needles,sourceId){
  const imgs=[]; const re=/<img\b[^>]*>/gi; let m;
- while((m=re.exec(html))&&imgs.length<250){const tag=m[0],src=(tag.match(/(?:src|data-src|data-original)=["']([^"']+)["']/i)||[])[1],alt=decode((tag.match(/(?:alt|title)=["']([^"']*)["']/i)||[])[1]||'');if(!src)continue;try{const url=new URL(src,base).href;if(!/logo|icon|sprite|pixel|loading/i.test(url+' '+alt))imgs.push({url,alt})}catch{}}
+ while((m=re.exec(html))&&imgs.length<300){const tag=m[0],src=(tag.match(/(?:src|data-src|data-original)=["']([^"']+)["']/i)||[])[1],alt=decode((tag.match(/(?:alt|title)=["']([^"']*)["']/i)||[])[1]||'');if(!src)continue;try{const url=new URL(src,base).href;if(!/logo|icon|sprite|pixel|loading|framework\/c\.png/i.test(url+' '+alt))imgs.push({url,alt})}catch{}}
+ let ad=null;
+ if(sourceId&&sourceId.startsWith('circlek'))ad=imgs.find(x=>/get_doc\/image\//i.test(x.url));
+ else if(sourceId&&sourceId.startsWith('7eleven'))ad=imgs.find(x=>/sites\/default\/files/i.test(x.url));
+ else if(sourceId==='bestmart360')ad=imgs.find(x=>/promo|promotion|banner/i.test(x.url)&&!/brands\/Product/i.test(x.url));
+ if(ad)return ad;
  const hit=imgs.find(x=>needles.some(n=>norm(x.alt).includes(norm(n))));
- if(hit)return hit;
- const og=(html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)||html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i)||[])[1];
- if(og&&!/logo|icon|sprite|pixel/i.test(og)){try{return{url:new URL(og,base).href,alt:''}}catch{}}
- return imgs.find(x=>/promo|promotion|banner|product|hotpick|weekly/i.test(x.url))||null;
+ return hit||null;
 }
 function terms(q){const k=norm(q);return [...new Set([k,...(ALIASES[k]||[])])].filter(Boolean)}
 function snippets(text,needles){const low=norm(text),out=[];for(const n0 of needles){const n=norm(n0);let at=low.indexOf(n),loops=0;while(at>=0&&loops<4){const start=Math.max(0,at-95),end=Math.min(text.length,at+n.length+230),s=text.slice(start,end).trim();if(s.length>20&&!out.some(x=>x.includes(s)||s.includes(x)))out.push(s);at=low.indexOf(n,at+n.length);loops++}}return out.slice(0,5)}
@@ -54,16 +56,16 @@ function confidence(tier){return tier==='official'?0.95:tier==='secondary-struct
 async function inspect(source,needles){
  try{
   const r=await fetch(source.url,{headers:{'user-agent':'Mozilla/5.0 CEGO-Price-Radar/0.9','accept':'text/html,application/xhtml+xml'},redirect:'follow',signal:AbortSignal.timeout(3500)});if(!r.ok)throw new Error('HTTP '+r.status);
-  const html=await r.text(),text=strip(html),hits=snippets(text,needles),img=imageFor(html,source.url,needles),v=validity(text),today=hkToday();
+  const html=await r.text(),text=strip(html),hits=snippets(text,needles),img=imageFor(html,source.url,needles,source.id),v=validity(text),today=hkToday();
   return {...source,status:'ok',matched:hits.length>0,snippets:hits,imageUrl:img?.url||null,imageLabel:img?.alt||'',...v,active:!v.validFrom||!v.validTo||(today>=v.validFrom&&today<=v.validTo),mechanics:mechanics(hits.join(' ')),confidence:confidence(source.tier)};
  }catch(e){return {...source,status:'unavailable',matched:false,snippets:[],validFrom:null,validTo:null,active:false,mechanics:[],confidence:confidence(source.tier),error:String(e.message||e)}}
 }
 export default async function handler(req,res){
  const q=String(req.query.q||'').trim();if(!q)return res.status(400).json({error:'missing query'});
  const needles=terms(q),checked=await Promise.all(SOURCES.map(s=>inspect(s,needles)));
- let results=checked.filter(x=>x.matched&&x.active).sort((a,b)=>b.confidence-a.confidence).map(x=>({store:x.store,sourceId:x.id,scope:x.scope,sourceTier:x.tier,channel:x.channel,url:x.url,imageUrl:x.imageUrl||null,imageLabel:x.imageLabel||'',evidence:x.snippets,validFrom:x.validFrom,validTo:x.validTo,mechanics:x.mechanics,confidence:x.confidence,priceScope:'public-promotion',branchConfirmed:false}));
+ let results=checked.filter(x=>x.matched&&x.active).sort((a,b)=>b.confidence-a.confidence).map(x=>({store:x.store,sourceId:x.id,scope:x.scope,sourceTier:x.tier,channel:x.channel,url:x.url,adImageUrl:x.imageUrl||null,imageLabel:x.imageLabel||'',evidence:x.snippets,validFrom:x.validFrom,validTo:x.validTo,mechanics:x.mechanics,confidence:x.confidence,priceScope:'public-promotion',branchConfirmed:false}));
  const cache=readCache(), liveAvailable=checked.some(x=>x.status==='ok'); let dataMode='live';
  if(!results.length){const cached=cacheMatches(cache.results,needles);if(cached.length){results=cached;dataMode='cache'}else if(!liveAvailable)dataMode='unavailable'}
  res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=1800');
- return res.status(200).json({version:'0.10.3',query:q,updatedAt:new Date().toISOString(),dataMode,cacheUpdatedAt:cache.updatedAt||null,results,checked:checked.map(({id,store,scope,tier,url,status,matched,active,validFrom,validTo})=>({id,store,scope,tier,url,status,matched,active,validFrom,validTo})),rule:'公開優惠情報只作門市推廣證據；官方來源優先，文字轉錄及媒體用作補漏／交叉核對。未有指定分店證據時，不當成該分店即時貨架價或庫存。'});
+ return res.status(200).json({version:'0.10.4',query:q,updatedAt:new Date().toISOString(),dataMode,cacheUpdatedAt:cache.updatedAt||null,results,checked:checked.map(({id,store,scope,tier,url,status,matched,active,validFrom,validTo})=>({id,store,scope,tier,url,status,matched,active,validFrom,validTo})),rule:'公開優惠情報只作門市推廣證據；官方來源優先，文字轉錄及媒體用作補漏／交叉核對。未有指定分店證據時，不當成該分店即時貨架價或庫存。'});
 }
