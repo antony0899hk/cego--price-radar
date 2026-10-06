@@ -1,4 +1,4 @@
-name: Update Consumer Council Price Feed
+name: Update Consumer Council Price Data
 on:
   workflow_dispatch:
   schedule:
@@ -14,24 +14,80 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Download official daily JSON
         run: |
           mkdir -p data
+          cp data/pricewatch.json /tmp/pricewatch-before.json 2>/dev/null || true
           curl --fail --location --retry 3 --connect-timeout 20 \
             'https://online-price-watch.consumer.org.hk/opw/opendata/pricewatch.json' \
-            -o data/pricewatch.json
+            -o /tmp/pricewatch-new.json
           python - <<'PY'
           import json
-          p='data/pricewatch.json'
-          with open(p,'r',encoding='utf-8-sig') as f: data=json.load(f)
-          if not data: raise SystemExit('Empty price feed')
-          print('Official feed downloaded successfully')
+          with open('/tmp/pricewatch-new.json','r',encoding='utf-8-sig') as f: data=json.load(f)
+          if not data: raise SystemExit('Empty price data')
+          print('Official price data downloaded successfully')
           PY
-      - name: Commit refreshed feed
+      - name: Detect CEGO first-seen products
+        run: |
+          python - <<'PY'
+          import json, os
+          from datetime import datetime, timezone, timedelta
+          old_path='/tmp/pricewatch-before.json'
+          new_path='/tmp/pricewatch-new.json'
+          def load(p,default):
+              try:
+                  with open(p,'r',encoding='utf-8-sig') as f:return json.load(f)
+              except:return default
+          def rows(x):
+              if isinstance(x,list): return x
+              return x.get('products') or x.get('data') or []
+          def txt(v):
+              if isinstance(v,dict): return v.get('zh-Hant') or v.get('en') or next(iter(v.values()),'')
+              return v or ''
+          old=rows(load(old_path,[])); new=rows(load(new_path,[]))
+          old_codes={str(x.get('code','')) for x in old}
+          anchors={'WELLCOME':'惠康','PARKNSHOP':'百佳','MANNINGS':'萬寧','WATSONS':'屈臣氏'}
+          hk=timezone(timedelta(hours=8)); now=datetime.now(hk); today=now.date().isoformat()
+          fresh=[]
+          for x in new:
+              code=str(x.get('code',''))
+              if not code or code in old_codes: continue
+              stores=[]
+              prices=[]
+              for p in x.get('prices') or []:
+                  sc=p.get('supermarketCode')
+                  if sc in anchors:
+                      stores.append(anchors[sc])
+                      try: prices.append({'store':anchors[sc],'price':float(p.get('price'))})
+                      except: pass
+              if not stores: continue
+              fresh.append({
+                  'code':code,'brand':txt(x.get('brand')),'product':txt(x.get('name')),
+                  'category':txt(x.get('cat2Name') or x.get('cat1Name') or x.get('cat3Name')),
+                  'stores':list(dict.fromkeys(stores)),'prices':prices,
+                  'firstSeenAt':today,'label':'CEGO 首次發現','officialNew':False
+              })
+          existing=load('data/new-arrivals.json',{'results':[]})
+          merged={str(x.get('code')):x for x in existing.get('results',[]) if x.get('code')}
+          for x in fresh: merged[x['code']]=x
+          # Keep a useful rolling window; firstSeenAt is CEGO observation date, not manufacturer launch date.
+          cutoff=(now.date()-timedelta(days=30)).isoformat()
+          kept=[x for x in merged.values() if str(x.get('firstSeenAt','9999-99-99'))>=cutoff]
+          kept.sort(key=lambda x:(x.get('firstSeenAt',''),x.get('code','')),reverse=True)
+          out={'version':'0.10.4','updatedAt':now.isoformat(),'results':kept[:120],
+               'newToday':len(fresh),
+               'note':'CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date.'}
+          with open('data/new-arrivals.json','w',encoding='utf-8') as f: json.dump(out,f,ensure_ascii=False,indent=2)
+          print('New anchor-retailer product codes today:',len(fresh))
+          PY
+          mv /tmp/pricewatch-new.json data/pricewatch.json
+      - name: Commit refreshed price data and first-seen Radar
         run: |
           git config user.name 'cego-price-radar-bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add data/pricewatch.json
+          git add data/pricewatch.json data/new-arrivals.json
           git diff --cached --quiet && exit 0
-          git commit -m 'data: refresh Consumer Council price feed'
+          git commit -m 'data: refresh prices and new-arrival radar'
           git push
