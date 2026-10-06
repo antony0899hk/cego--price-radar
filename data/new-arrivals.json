@@ -1,7 +1,1602 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-10-06T10:40:41.545873+08:00",
-  "results": [],
+  "updatedAt": "2026-10-06T10:41:25.359516+08:00",
+  "results": [
+    {
+      "code": "P000005441",
+      "brand": "法國聖桃園",
+      "product": "天然橙果醬 284克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 29.0
+        },
+        {
+          "store": "百佳",
+          "price": 29.0
+        }
+      ],
+      "firstSeenAt": "2026-10-05",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005412",
+      "brand": "皇室",
+      "product": "北海道風味牛乳味蛋糕 3個 130克",
+      "category": "蛋糕",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 17.5
+        },
+        {
+          "store": "百佳",
+          "price": 17.5
+        }
+      ],
+      "firstSeenAt": "2026-10-05",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005425",
+      "brand": "Bonne Maman",
+      "product": "幼滑花生醬 325克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 49.0
+        },
+        {
+          "store": "百佳",
+          "price": 55.0
+        }
+      ],
+      "firstSeenAt": "2026-10-02",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005411",
+      "brand": "嘉頓",
+      "product": "朱古力榛子味蛋糕 6片 240克",
+      "category": "蛋糕",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 24.0
+        }
+      ],
+      "firstSeenAt": "2026-10-02",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005440",
+      "brand": "法國聖桃園",
+      "product": "天然杏桃果醬 284克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 36.0
+        },
+        {
+          "store": "百佳",
+          "price": 36.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005439",
+      "brand": "盛美家",
+      "product": "菠蘿果醬 340克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 36.0
+        },
+        {
+          "store": "百佳",
+          "price": 31.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005438",
+      "brand": "盛美家",
+      "product": "香橙果醬 340克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 36.0
+        },
+        {
+          "store": "百佳",
+          "price": 31.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005437",
+      "brand": "Bonne Maman",
+      "product": "士多啤梨果醬 370克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 39.0
+        },
+        {
+          "store": "百佳",
+          "price": 39.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005436",
+      "brand": "加藤",
+      "product": "蘋果果醬 280克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 25.0
+        },
+        {
+          "store": "百佳",
+          "price": 26.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005435",
+      "brand": "加藤",
+      "product": "士多啤梨果醬 280克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 25.0
+        },
+        {
+          "store": "百佳",
+          "price": 26.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005433",
+      "brand": "頂好牌",
+      "product": "花生醬 - 扭紋朱古力 340克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 34.9
+        },
+        {
+          "store": "百佳",
+          "price": 34.9
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005432",
+      "brand": "Essential Waitrose",
+      "product": "粗粒花生醬 340克",
+      "category": "麵包醬",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 30.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005431",
+      "brand": "Essential Waitrose",
+      "product": "幼滑花生醬 340克",
+      "category": "麵包醬",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 30.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005430",
+      "brand": "The Nutter Company",
+      "product": "粗粒花生醬 320克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 68.0
+        },
+        {
+          "store": "百佳",
+          "price": 68.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005429",
+      "brand": "The Nutter Company",
+      "product": "幼滑花生醬 320克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 68.0
+        },
+        {
+          "store": "百佳",
+          "price": 68.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005428",
+      "brand": "媽媽農場",
+      "product": "天然奇亞籽花生醬 380克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 47.9
+        },
+        {
+          "store": "百佳",
+          "price": 53.1
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005427",
+      "brand": "媽媽農場",
+      "product": "天然LSA花生醬 380克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 47.9
+        },
+        {
+          "store": "百佳",
+          "price": 53.1
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005426",
+      "brand": "Bonne Maman",
+      "product": "脆粒花生醬 325克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 52.0
+        },
+        {
+          "store": "百佳",
+          "price": 52.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005424",
+      "brand": "Bob's Red Mill",
+      "product": "有機快熟滾壓燕麥片 28安士 794克",
+      "category": "穀類早餐",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 89.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005422",
+      "brand": "龍堡",
+      "product": "牛油蛋糕 300克",
+      "category": "蛋糕",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 24.9
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005421",
+      "brand": "森永",
+      "product": "朱古力批 6個",
+      "category": "蛋糕",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 24.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005420",
+      "brand": "佳之選",
+      "product": "日式蛋糕卷 (花生) 75克",
+      "category": "蛋糕",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 9.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005419",
+      "brand": "佳之選",
+      "product": "日式蛋糕卷 (香蕉) 75克",
+      "category": "蛋糕",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 9.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005418",
+      "brand": "佳之選",
+      "product": "日式蛋糕卷 (朱古力) 75克",
+      "category": "蛋糕",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 9.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005417",
+      "brand": "嘉頓",
+      "product": "迷你瑞士卷 (紅豆味) 56克",
+      "category": "蛋糕",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 11.0
+        },
+        {
+          "store": "百佳",
+          "price": 10.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005416",
+      "brand": "佳之選",
+      "product": "雪芳蛋糕 (香草味) 55克",
+      "category": "蛋糕",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 7.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005415",
+      "brand": "佳之選",
+      "product": "雪芳蛋糕 (芝士味) 55克",
+      "category": "蛋糕",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 7.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005414",
+      "brand": "嘉頓",
+      "product": "雪芳蛋糕 (牛奶味) 60克",
+      "category": "蛋糕",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 10.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005413",
+      "brand": "嘉頓",
+      "product": "雪芳蛋糕 (檸檬味) 60克",
+      "category": "蛋糕",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 10.0
+        },
+        {
+          "store": "百佳",
+          "price": 10.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005410",
+      "brand": "嘉頓",
+      "product": "雲呢嗱味蛋糕 6片 240克",
+      "category": "蛋糕",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 29.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005409",
+      "brand": "嘉頓",
+      "product": "莉萊蛋糕 (檸檬味) 140克",
+      "category": "蛋糕",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 17.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005408",
+      "brand": "嘉頓",
+      "product": "莉萊蛋糕 (奶油味) 140克",
+      "category": "蛋糕",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 17.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005407",
+      "brand": "嘉頓",
+      "product": "奶香芋泥湯種包 1個",
+      "category": "麵包",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 11.0
+        },
+        {
+          "store": "百佳",
+          "price": 11.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005406",
+      "brand": "嘉頓",
+      "product": "牛奶吉士湯種包 1個",
+      "category": "麵包",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 11.0
+        },
+        {
+          "store": "百佳",
+          "price": 11.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005405",
+      "brand": "嘉頓",
+      "product": "紅豆栗子湯種包 1個",
+      "category": "麵包",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 11.0
+        },
+        {
+          "store": "百佳",
+          "price": 11.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005404",
+      "brand": "佳之選",
+      "product": "全麥合桃紅莓包 215克",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 16.9
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005403",
+      "brand": "佳之選",
+      "product": "香軟提子條 5個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 14.9
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005402",
+      "brand": "佳之選",
+      "product": "迷你酸種牛角酥 6個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 22.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005401",
+      "brand": "佳味工房",
+      "product": "迷你日式吉士包 3個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 10.5
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005400",
+      "brand": "佳味工房",
+      "product": "迷你日式紅豆包 3個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 10.5
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005399",
+      "brand": "佳之選",
+      "product": "熱狗包 4個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 14.9
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005398",
+      "brand": "佳之選",
+      "product": "漢堡包 4個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 14.9
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005397",
+      "brand": "嘉頓",
+      "product": "厚切方麥包 6片",
+      "category": "麵包",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 13.5
+        },
+        {
+          "store": "百佳",
+          "price": 13.5
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005396",
+      "brand": "佳之選",
+      "product": "切皮三文治方麥包 6片",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 10.9
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005395",
+      "brand": "佳之選",
+      "product": "全麥方包 8片",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 12.5
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005394",
+      "brand": "佳之選",
+      "product": "特級方包 8片",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 12.5
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005393",
+      "brand": "樂事",
+      "product": "脆辣雞翼味薯片 180克",
+      "category": "小食",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 33.0
+        },
+        {
+          "store": "百佳",
+          "price": 29.9
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000002519",
+      "brand": "滋味",
+      "product": "日本櫻花雞蛋 10隻",
+      "category": "蛋類",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 30.0
+        }
+      ],
+      "firstSeenAt": "2026-10-01",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005382",
+      "brand": "馬頓酒莊",
+      "product": "夏布利白酒 750毫升",
+      "category": "白酒",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 239.0
+        }
+      ],
+      "firstSeenAt": "2026-09-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005381",
+      "brand": "波爾多力卡巴頓",
+      "product": "白酒 750毫升",
+      "category": "白酒",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 89.0
+        }
+      ],
+      "firstSeenAt": "2026-09-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005380",
+      "brand": "吉佳樂世家",
+      "product": "隆河丘白酒 750毫升",
+      "category": "白酒",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 119.0
+        }
+      ],
+      "firstSeenAt": "2026-09-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005371",
+      "brand": "法國拉菲",
+      "product": "凱薩天堂古堡紅酒 750毫升",
+      "category": "紅酒",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 169.0
+        }
+      ],
+      "firstSeenAt": "2026-09-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005370",
+      "brand": "法國香奈",
+      "product": "赤霞珠切拉子紅酒 (小瓶裝) 250毫升",
+      "category": "紅酒",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 59.0
+        }
+      ],
+      "firstSeenAt": "2026-09-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005369",
+      "brand": "武當嘉棣",
+      "product": "有機波爾多紅酒 750毫升",
+      "category": "紅酒",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 178.0
+        }
+      ],
+      "firstSeenAt": "2026-09-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005368",
+      "brand": "法國拉菲",
+      "product": "赤霞珠切粒子紅酒 750毫升",
+      "category": "紅酒",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 119.0
+        }
+      ],
+      "firstSeenAt": "2026-09-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005367",
+      "brand": "Chateau Holden",
+      "product": "梅鐸紅酒 750毫升",
+      "category": "紅酒",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 165.0
+        }
+      ],
+      "firstSeenAt": "2026-09-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005366",
+      "brand": "來福酒莊",
+      "product": "波爾多乾紅酒 2018 750毫升",
+      "category": "紅酒",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 99.0
+        }
+      ],
+      "firstSeenAt": "2026-09-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005444",
+      "brand": "MEADOWS",
+      "product": "杏脯果醬 340GM",
+      "category": "麵包醬",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 18.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005443",
+      "brand": "MEADOWS",
+      "product": "藍莓果醬 340GM",
+      "category": "麵包醬",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 18.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005442",
+      "brand": "MEADOWS",
+      "product": "士多啤梨果醬 340克",
+      "category": "麵包醬",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 18.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005385",
+      "brand": "加州赤足",
+      "product": "灰皮諾白酒 750毫升",
+      "category": "白酒",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 81.0
+        },
+        {
+          "store": "百佳",
+          "price": 59.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005384",
+      "brand": "加州赤足",
+      "product": "蘇維翁白酒 750毫升",
+      "category": "白酒",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 59.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005383",
+      "brand": "加州赤足",
+      "product": "莫斯卡托白酒 750毫升",
+      "category": "白酒",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 81.0
+        },
+        {
+          "store": "百佳",
+          "price": 59.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000004847",
+      "brand": "施巴",
+      "product": "祛擴張紋膏 200毫升",
+      "category": "皮膚護理",
+      "stores": [
+        "屈臣氏"
+      ],
+      "prices": [
+        {
+          "store": "屈臣氏",
+          "price": 306.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000002811",
+      "brand": "妮飄",
+      "product": "嬰兒紙尿片 (細碼) 72片",
+      "category": "嬰兒用品",
+      "stores": [
+        "屈臣氏"
+      ],
+      "prices": [
+        {
+          "store": "屈臣氏",
+          "price": 150.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000002760",
+      "brand": "嘉寶",
+      "product": "香蕉星星餅 1.48安士 42克",
+      "category": "嬰幼兒食品 / 嬰兒食品 / 幼兒食品",
+      "stores": [
+        "屈臣氏"
+      ],
+      "prices": [
+        {
+          "store": "屈臣氏",
+          "price": 29.9
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001667",
+      "brand": "雅培",
+      "product": "媽媽喜康素 Similac Mom 孕婦低脂配方 800克",
+      "category": "孕婦奶粉",
+      "stores": [
+        "屈臣氏"
+      ],
+      "prices": [
+        {
+          "store": "屈臣氏",
+          "price": 209.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001405",
+      "brand": "安滿",
+      "product": "孕媽媽奶粉 800克",
+      "category": "孕婦奶粉",
+      "stores": [
+        "屈臣氏"
+      ],
+      "prices": [
+        {
+          "store": "屈臣氏",
+          "price": 279.0
+        }
+      ],
+      "firstSeenAt": "2026-09-26",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000002565",
+      "brand": "Bob's Red Mill",
+      "product": "滾壓燕麥 - 即食 (32安士 / 2磅) 907克",
+      "category": "穀類早餐",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 65.0
+        },
+        {
+          "store": "百佳",
+          "price": 65.0
+        }
+      ],
+      "firstSeenAt": "2026-09-25",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000002561",
+      "brand": "Bob's Red Mill",
+      "product": "滾壓燕麥 - 特厚 (32安士 / 2磅) 907克",
+      "category": "穀類早餐",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 65.0
+        }
+      ],
+      "firstSeenAt": "2026-09-25",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005028",
+      "brand": "樂天",
+      "product": "天然礦泉水 2公升",
+      "category": "樽裝水 / 運動飲品 /  能量飲品",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 13.0
+        },
+        {
+          "store": "百佳",
+          "price": 13.9
+        }
+      ],
+      "firstSeenAt": "2026-09-24",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001585",
+      "brand": "嘉頓",
+      "product": "牛奶餐包 4個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 19.0
+        }
+      ],
+      "firstSeenAt": "2026-09-24",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001373",
+      "brand": "嘉頓",
+      "product": "牛油軟包 4個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 19.0
+        }
+      ],
+      "firstSeenAt": "2026-09-24",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001368",
+      "brand": "嘉頓",
+      "product": "小餐包 8個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 19.0
+        }
+      ],
+      "firstSeenAt": "2026-09-24",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001367",
+      "brand": "嘉頓",
+      "product": "甜餐包 4個",
+      "category": "麵包",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 16.0
+        }
+      ],
+      "firstSeenAt": "2026-09-24",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000004945",
+      "brand": "加拿大楓之寶",
+      "product": "健腸益生菌 (70億) 30粒",
+      "category": "保健食品 / 營養補充劑",
+      "stores": [
+        "百佳",
+        "屈臣氏"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 119.0
+        },
+        {
+          "store": "屈臣氏",
+          "price": 119.0
+        }
+      ],
+      "firstSeenAt": "2026-09-23",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000003639",
+      "brand": "Little Freddie",
+      "product": "有機大米米糊 160克",
+      "category": "嬰幼兒食品 / 嬰兒食品 / 幼兒食品",
+      "stores": [
+        "屈臣氏"
+      ],
+      "prices": [
+        {
+          "store": "屈臣氏",
+          "price": 49.9
+        }
+      ],
+      "firstSeenAt": "2026-09-23",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000002738",
+      "brand": "白雪",
+      "product": "白砂糖 1公斤",
+      "category": "調味 / 煮食用料",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 14.0
+        }
+      ],
+      "firstSeenAt": "2026-09-23",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000004679",
+      "brand": "佳之選",
+      "product": "柔韌紙巾 - 無味 18包",
+      "category": "紙品",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 12.5
+        }
+      ],
+      "firstSeenAt": "2026-09-22",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000003613",
+      "brand": "佳之選",
+      "product": "柔韌紙巾－茉莉花花香 18包裝",
+      "category": "紙品",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 12.5
+        }
+      ],
+      "firstSeenAt": "2026-09-22",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000003396",
+      "brand": "長城牌",
+      "product": "豆豉鯪魚 184克",
+      "category": "罐頭食品",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 18.0
+        }
+      ],
+      "firstSeenAt": "2026-09-18",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    }
+  ],
   "newToday": 0,
+  "historySnapshots": 23,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
