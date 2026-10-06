@@ -11,7 +11,7 @@ export default async function handler(req,res){
    const alt=(tag.match(/(?:alt|title)=["']([^"']*)["']/i)||[])[1]||'';
    if(src)imgs.push({src,alt,tag:tag.slice(0,300)});
   }
-  const clues=[...html.matchAll(/.{0,180}(?:productImage|product-image|photo|imageUrl|imagePath|supermarketCode).{0,300}/gi)].slice(0,40).map(x=>x[0]);
-  res.status(200).json({status:r.status,url,length:html.length,imgs,clues});
+  const clues=[...html.matchAll(/.{0,220}(?:productImage|product-image|product-images|photo|imageUrl|imagePath|supermarketCode|multipic).{0,500}/gi)].slice(0,80).map(x=>x[0]); const scripts=[...html.matchAll(/<script[^>]+src=[\"']([^\"']+)[\"']/gi)].map(x=>x[1]);
+  res.status(200).json({status:r.status,url,length:html.length,imgs,clues,scripts});
  }catch(e){res.status(500).json({error:String(e)})}
 }
