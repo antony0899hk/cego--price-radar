@@ -32,55 +32,65 @@ jobs:
       - name: Detect CEGO first-seen products
         run: |
           python - <<'PY'
-          import json, os
+          import json, subprocess
           from datetime import datetime, timezone, timedelta
-          old_path='/tmp/pricewatch-before.json'
-          new_path='/tmp/pricewatch-new.json'
-          def load(p,default):
-              try:
-                  with open(p,'r',encoding='utf-8-sig') as f:return json.load(f)
-              except:return default
+          hk=timezone(timedelta(hours=8)); now=datetime.now(hk)
+          anchors={'WELLCOME':'惠康','PARKNSHOP':'百佳','MANNINGS':'萬寧','WATSONS':'屈臣氏'}
           def rows(x):
               if isinstance(x,list): return x
               return x.get('products') or x.get('data') or []
           def txt(v):
               if isinstance(v,dict): return v.get('zh-Hant') or v.get('en') or next(iter(v.values()),'')
               return v or ''
-          old=rows(load(old_path,[])); new=rows(load(new_path,[]))
-          old_codes={str(x.get('code','')) for x in old}
-          anchors={'WELLCOME':'惠康','PARKNSHOP':'百佳','MANNINGS':'萬寧','WATSONS':'屈臣氏'}
-          hk=timezone(timedelta(hours=8)); now=datetime.now(hk); today=now.date().isoformat()
-          fresh=[]
-          for x in new:
-              code=str(x.get('code',''))
-              if not code or code in old_codes: continue
-              stores=[]
-              prices=[]
+          def load_text(s):
+              try:return json.loads(s.lstrip('\ufeff'))
+              except:return []
+          def anchor_item(x,day):
+              stores=[]; prices=[]
               for p in x.get('prices') or []:
                   sc=p.get('supermarketCode')
                   if sc in anchors:
                       stores.append(anchors[sc])
                       try: prices.append({'store':anchors[sc],'price':float(p.get('price'))})
                       except: pass
-              if not stores: continue
-              fresh.append({
-                  'code':code,'brand':txt(x.get('brand')),'product':txt(x.get('name')),
-                  'category':txt(x.get('cat2Name') or x.get('cat1Name') or x.get('cat3Name')),
-                  'stores':list(dict.fromkeys(stores)),'prices':prices,
-                  'firstSeenAt':today,'label':'CEGO 首次發現','officialNew':False
-              })
-          existing=load('data/new-arrivals.json',{'results':[]})
-          merged={str(x.get('code')):x for x in existing.get('results',[]) if x.get('code')}
-          for x in fresh: merged[x['code']]=x
-          # Keep a useful rolling window; firstSeenAt is CEGO observation date, not manufacturer launch date.
+              if not stores:return None
+              return {'code':str(x.get('code','')),'brand':txt(x.get('brand')),'product':txt(x.get('name')),
+                'category':txt(x.get('cat2Name') or x.get('cat1Name') or x.get('cat3Name')),
+                'stores':list(dict.fromkeys(stores)),'prices':prices,'firstSeenAt':day,
+                'label':'CEGO 首次發現','officialNew':False}
+          # Rebuild a rolling first-seen history from committed daily snapshots.
+          shas=subprocess.check_output(['git','log','--reverse','--since=35.days','--format=%H','--','data/pricewatch.json'],text=True).split()
+          snaps=[]
+          for sha in shas:
+              try:
+                  raw=subprocess.check_output(['git','show',f'{sha}:data/pricewatch.json'],text=True)
+                  day=subprocess.check_output(['git','show','-s','--format=%cI',sha],text=True).strip()[:10]
+                  snaps.append((day,rows(load_text(raw))))
+              except: pass
+          with open('/tmp/pricewatch-new.json','r',encoding='utf-8-sig') as f: current=rows(json.load(f))
+          snaps.append((now.date().isoformat(),current))
+          seen=set(); found={}
+          for i,(day,items) in enumerate(snaps):
+              codes={str(x.get('code','')) for x in items if x.get('code')}
+              if i==0:
+                  seen|=codes
+                  continue
+              for x in items:
+                  code=str(x.get('code',''))
+                  if not code or code in seen or code in found: continue
+                  item=anchor_item(x,day)
+                  if item: found[code]=item
+              seen|=codes
           cutoff=(now.date()-timedelta(days=30)).isoformat()
-          kept=[x for x in merged.values() if str(x.get('firstSeenAt','9999-99-99'))>=cutoff]
+          kept=[x for x in found.values() if x.get('firstSeenAt','')>=cutoff]
           kept.sort(key=lambda x:(x.get('firstSeenAt',''),x.get('code','')),reverse=True)
-          out={'version':'0.10.4','updatedAt':now.isoformat(),'results':kept[:120],
-               'newToday':len(fresh),
+          today=now.date().isoformat()
+          out={'version':'0.10.4','updatedAt':now.isoformat(),'results':kept[:160],
+               'newToday':sum(1 for x in kept if x.get('firstSeenAt')==today),
+               'historySnapshots':len(snaps),
                'note':'CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date.'}
           with open('data/new-arrivals.json','w',encoding='utf-8') as f: json.dump(out,f,ensure_ascii=False,indent=2)
-          print('New anchor-retailer product codes today:',len(fresh))
+          print('Snapshots:',len(snaps),'First-seen products:',len(kept),'Today:',out['newToday'])
           PY
           mv /tmp/pricewatch-new.json data/pricewatch.json
       - name: Commit refreshed price data and first-seen Radar
