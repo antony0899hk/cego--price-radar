@@ -37,7 +37,7 @@ function imageFor(html,base,needles){
  const hit=imgs.find(x=>needles.some(n=>norm(x.alt).includes(norm(n))));
  if(hit)return hit;
  const og=(html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)||html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i)||[])[1];
- if(og){try{return{url:new URL(og,base).href,alt:''}}catch{}}
+ if(og&&!/logo|icon|sprite|pixel/i.test(og)){try{return{url:new URL(og,base).href,alt:''}}catch{}}
  return imgs.find(x=>/promo|promotion|banner|product|hotpick|weekly/i.test(x.url))||null;
 }
 function terms(q){const k=norm(q);return [...new Set([k,...(ALIASES[k]||[])])].filter(Boolean)}
@@ -65,5 +65,5 @@ export default async function handler(req,res){
  const cache=readCache(), liveAvailable=checked.some(x=>x.status==='ok'); let dataMode='live';
  if(!results.length){const cached=cacheMatches(cache.results,needles);if(cached.length){results=cached;dataMode='cache'}else if(!liveAvailable)dataMode='unavailable'}
  res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=1800');
- return res.status(200).json({version:'0.10.2',query:q,updatedAt:new Date().toISOString(),dataMode,cacheUpdatedAt:cache.updatedAt||null,results,checked:checked.map(({id,store,scope,tier,url,status,matched,active,validFrom,validTo})=>({id,store,scope,tier,url,status,matched,active,validFrom,validTo})),rule:'公開優惠情報只作門市推廣證據；官方來源優先，文字轉錄及媒體用作補漏／交叉核對。未有指定分店證據時，不當成該分店即時貨架價或庫存。'});
+ return res.status(200).json({version:'0.10.3',query:q,updatedAt:new Date().toISOString(),dataMode,cacheUpdatedAt:cache.updatedAt||null,results,checked:checked.map(({id,store,scope,tier,url,status,matched,active,validFrom,validTo})=>({id,store,scope,tier,url,status,matched,active,validFrom,validTo})),rule:'公開優惠情報只作門市推廣證據；官方來源優先，文字轉錄及媒體用作補漏／交叉核對。未有指定分店證據時，不當成該分店即時貨架價或庫存。'});
 }
