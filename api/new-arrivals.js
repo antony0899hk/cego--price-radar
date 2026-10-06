@@ -1,3 +1,3 @@
 import fs from 'fs';import path from 'path';
 const FILE=path.join(process.cwd(),'data','new-arrivals.json');
-export default function handler(req,res){let data={updatedAt:null,results:[]};try{data=JSON.parse(fs.readFileSync(FILE,'utf8'))}catch{}res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=1800');res.status(200).json({version:'0.10.0',...data,rule:'CEGO 首次發現代表 CEGO 第一次在四大生活商戶商品資料中見到該商品，不等於品牌官方上市日期。'})}
+export default function handler(req,res){let data={updatedAt:null,results:[]};try{data=JSON.parse(fs.readFileSync(FILE,'utf8'))}catch{}res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=1800');res.status(200).json({version:'0.10.4',...data,rule:'CEGO 首次發現代表 CEGO 第一次在四大生活商戶商品資料中見到該商品，不等於品牌官方上市日期。'})}
