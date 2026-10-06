@@ -1,6 +1,7 @@
 {
-  "version": "0.10.0",
-  "updatedAt": null,
+  "version": "0.10.4",
+  "updatedAt": "2026-10-06T10:40:41.545873+08:00",
   "results": [],
-  "note": "Populated by daily snapshot comparison. Empty until enough history exists."
+  "newToday": 0,
+  "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
