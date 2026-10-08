@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-10-07T19:55:43.763610+08:00",
+  "updatedAt": "2026-10-08T20:10:53.590544+08:00",
   "results": [
     {
       "code": "P000001443",
@@ -1614,7 +1614,7 @@
       "officialNew": false
     }
   ],
-  "newToday": 1,
-  "historySnapshots": 24,
+  "newToday": 0,
+  "historySnapshots": 25,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
