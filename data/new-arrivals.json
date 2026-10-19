@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-10-18T17:47:50.479920+08:00",
+  "updatedAt": "2026-10-19T19:04:56.913919+08:00",
   "results": [
     {
       "code": "P000004671",
@@ -1612,27 +1612,9 @@
       "firstSeenAt": "2026-09-22",
       "label": "CEGO 首次發現",
       "officialNew": false
-    },
-    {
-      "code": "P000003396",
-      "brand": "長城牌",
-      "product": "豆豉鯪魚 184克",
-      "category": "罐頭食品",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 18.0
-        }
-      ],
-      "firstSeenAt": "2026-09-18",
-      "label": "CEGO 首次發現",
-      "officialNew": false
     }
   ],
   "newToday": 0,
-  "historySnapshots": 35,
+  "historySnapshots": 36,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
