@@ -1,7 +1,25 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-10-22T18:27:47.348933+08:00",
+  "updatedAt": "2026-10-23T18:24:18.192552+08:00",
   "results": [
+    {
+      "code": "P000004669",
+      "brand": "金御膳",
+      "product": "特級鴨膶腸 200克",
+      "category": "乾貨",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 34.0
+        }
+      ],
+      "firstSeenAt": "2026-10-23",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
     {
       "code": "P000004671",
       "brand": "金御膳",
@@ -1576,45 +1594,9 @@
       "firstSeenAt": "2026-09-23",
       "label": "CEGO 首次發現",
       "officialNew": false
-    },
-    {
-      "code": "P000004679",
-      "brand": "佳之選",
-      "product": "柔韌紙巾 - 無味 18包",
-      "category": "紙品",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 12.5
-        }
-      ],
-      "firstSeenAt": "2026-09-22",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000003613",
-      "brand": "佳之選",
-      "product": "柔韌紙巾－茉莉花花香 18包裝",
-      "category": "紙品",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 12.5
-        }
-      ],
-      "firstSeenAt": "2026-09-22",
-      "label": "CEGO 首次發現",
-      "officialNew": false
     }
   ],
-  "newToday": 0,
+  "newToday": 1,
   "historySnapshots": 35,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
