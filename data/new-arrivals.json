@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-10-23T18:24:18.192552+08:00",
+  "updatedAt": "2026-10-24T17:43:34.026717+08:00",
   "results": [
     {
       "code": "P000004669",
@@ -1535,68 +1535,9 @@
       "firstSeenAt": "2026-09-24",
       "label": "CEGO 首次發現",
       "officialNew": false
-    },
-    {
-      "code": "P000004945",
-      "brand": "加拿大楓之寶",
-      "product": "健腸益生菌 (70億) 30粒",
-      "category": "保健食品 / 營養補充劑",
-      "stores": [
-        "百佳",
-        "屈臣氏"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 119.0
-        },
-        {
-          "store": "屈臣氏",
-          "price": 119.0
-        }
-      ],
-      "firstSeenAt": "2026-09-23",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000003639",
-      "brand": "Little Freddie",
-      "product": "有機大米米糊 160克",
-      "category": "嬰幼兒食品 / 嬰兒食品 / 幼兒食品",
-      "stores": [
-        "屈臣氏"
-      ],
-      "prices": [
-        {
-          "store": "屈臣氏",
-          "price": 49.9
-        }
-      ],
-      "firstSeenAt": "2026-09-23",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000002738",
-      "brand": "白雪",
-      "product": "白砂糖 1公斤",
-      "category": "調味 / 煮食用料",
-      "stores": [
-        "惠康"
-      ],
-      "prices": [
-        {
-          "store": "惠康",
-          "price": 14.0
-        }
-      ],
-      "firstSeenAt": "2026-09-23",
-      "label": "CEGO 首次發現",
-      "officialNew": false
     }
   ],
-  "newToday": 1,
+  "newToday": 0,
   "historySnapshots": 35,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
