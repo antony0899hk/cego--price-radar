@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-10-24T17:43:34.026717+08:00",
+  "updatedAt": "2026-10-25T18:01:27.130456+08:00",
   "results": [
     {
       "code": "P000004669",
@@ -1438,101 +1438,6 @@
         }
       ],
       "firstSeenAt": "2026-09-25",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000005028",
-      "brand": "樂天",
-      "product": "天然礦泉水 2公升",
-      "category": "樽裝水 / 運動飲品 /  能量飲品",
-      "stores": [
-        "惠康",
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "惠康",
-          "price": 13.0
-        },
-        {
-          "store": "百佳",
-          "price": 13.9
-        }
-      ],
-      "firstSeenAt": "2026-09-24",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000001585",
-      "brand": "嘉頓",
-      "product": "牛奶餐包 4個",
-      "category": "麵包",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 19.0
-        }
-      ],
-      "firstSeenAt": "2026-09-24",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000001373",
-      "brand": "嘉頓",
-      "product": "牛油軟包 4個",
-      "category": "麵包",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 19.0
-        }
-      ],
-      "firstSeenAt": "2026-09-24",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000001368",
-      "brand": "嘉頓",
-      "product": "小餐包 8個",
-      "category": "麵包",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 19.0
-        }
-      ],
-      "firstSeenAt": "2026-09-24",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000001367",
-      "brand": "嘉頓",
-      "product": "甜餐包 4個",
-      "category": "麵包",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 16.0
-        }
-      ],
-      "firstSeenAt": "2026-09-24",
       "label": "CEGO 首次發現",
       "officialNew": false
     }
