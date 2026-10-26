@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-10-25T18:01:27.130456+08:00",
+  "updatedAt": "2026-10-26T19:24:17.700473+08:00",
   "results": [
     {
       "code": "P000004669",
@@ -1397,47 +1397,6 @@
         }
       ],
       "firstSeenAt": "2026-09-26",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000002565",
-      "brand": "Bob's Red Mill",
-      "product": "滾壓燕麥 - 即食 (32安士 / 2磅) 907克",
-      "category": "穀類早餐",
-      "stores": [
-        "惠康",
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "惠康",
-          "price": 65.0
-        },
-        {
-          "store": "百佳",
-          "price": 65.0
-        }
-      ],
-      "firstSeenAt": "2026-09-25",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000002561",
-      "brand": "Bob's Red Mill",
-      "product": "滾壓燕麥 - 特厚 (32安士 / 2磅) 907克",
-      "category": "穀類早餐",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 65.0
-        }
-      ],
-      "firstSeenAt": "2026-09-25",
       "label": "CEGO 首次發現",
       "officialNew": false
     }
