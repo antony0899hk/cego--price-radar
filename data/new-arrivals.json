@@ -1,7 +1,61 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-10-28T19:30:43.677753+08:00",
+  "updatedAt": "2026-10-29T19:40:10.351989+08:00",
   "results": [
+    {
+      "code": "P000002032",
+      "brand": "潔柔",
+      "product": "典雅 柔韌 3+1 (1650, 黃色包裝) 4層衛生紙 12卷裝",
+      "category": "紙品",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 35.0
+        }
+      ],
+      "firstSeenAt": "2026-10-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001877",
+      "brand": "費列羅",
+      "product": "Rocher 金莎朱古力 T32 (32粒裝) 金鑽禮盒 400克",
+      "category": "糖果 / 甜品",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 166.8
+        }
+      ],
+      "firstSeenAt": "2026-10-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001450",
+      "brand": "樂家",
+      "product": "杏仁糖 340克",
+      "category": "糖果 / 甜品",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 112.0
+        }
+      ],
+      "firstSeenAt": "2026-10-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
     {
       "code": "P000004669",
       "brand": "金御膳",
@@ -1211,7 +1265,7 @@
       "officialNew": false
     }
   ],
-  "newToday": 0,
+  "newToday": 3,
   "historySnapshots": 35,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
