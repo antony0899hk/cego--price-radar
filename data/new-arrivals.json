@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-01T19:57:28.042749+08:00",
+  "updatedAt": "2026-11-02T21:44:40.722845+08:00",
   "results": [
     {
       "code": "P000002032",
@@ -153,47 +153,6 @@
         }
       ],
       "firstSeenAt": "2026-10-05",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000005425",
-      "brand": "Bonne Maman",
-      "product": "幼滑花生醬 325克",
-      "category": "麵包醬",
-      "stores": [
-        "惠康",
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "惠康",
-          "price": 49.0
-        },
-        {
-          "store": "百佳",
-          "price": 55.0
-        }
-      ],
-      "firstSeenAt": "2026-10-02",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000005411",
-      "brand": "嘉頓",
-      "product": "朱古力榛子味蛋糕 6片 240克",
-      "category": "蛋糕",
-      "stores": [
-        "惠康"
-      ],
-      "prices": [
-        {
-          "store": "惠康",
-          "price": 24.0
-        }
-      ],
-      "firstSeenAt": "2026-10-02",
       "label": "CEGO 首次發現",
       "officialNew": false
     }
