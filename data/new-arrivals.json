@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-03T20:56:35.914380+08:00",
+  "updatedAt": "2026-11-04T21:11:52.064617+08:00",
   "results": [
     {
       "code": "P000002032",
@@ -50,6 +50,24 @@
         {
           "store": "百佳",
           "price": 112.0
+        }
+      ],
+      "firstSeenAt": "2026-10-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000000760",
+      "brand": "灣仔碼頭",
+      "product": "西洋菜豬肉水餃 180克",
+      "category": "急凍加工食品 / 冷藏加工食品",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 30.0
         }
       ],
       "firstSeenAt": "2026-10-29",
