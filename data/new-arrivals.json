@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-04T21:11:52.064617+08:00",
+  "updatedAt": "2026-11-05T21:25:13.690732+08:00",
   "results": [
     {
       "code": "P000002032",
@@ -125,52 +125,6 @@
         }
       ],
       "firstSeenAt": "2026-10-07",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000005441",
-      "brand": "法國聖桃園",
-      "product": "天然橙果醬 284克",
-      "category": "麵包醬",
-      "stores": [
-        "惠康",
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "惠康",
-          "price": 29.0
-        },
-        {
-          "store": "百佳",
-          "price": 29.0
-        }
-      ],
-      "firstSeenAt": "2026-10-05",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000005412",
-      "brand": "皇室",
-      "product": "北海道風味牛乳味蛋糕 3個 130克",
-      "category": "蛋糕",
-      "stores": [
-        "惠康",
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "惠康",
-          "price": 17.5
-        },
-        {
-          "store": "百佳",
-          "price": 17.5
-        }
-      ],
-      "firstSeenAt": "2026-10-05",
       "label": "CEGO 首次發現",
       "officialNew": false
     }
