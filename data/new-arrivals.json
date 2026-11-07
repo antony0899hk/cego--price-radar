@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-06T21:08:31.442070+08:00",
+  "updatedAt": "2026-11-07T19:52:11.670293+08:00",
   "results": [
     {
       "code": "P000002032",
@@ -107,24 +107,6 @@
         }
       ],
       "firstSeenAt": "2026-10-10",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000001443",
-      "brand": "蜜思",
-      "product": "精選特級牛奶巧克力 (內含七種不同口味) 250克",
-      "category": "糖果 / 甜品",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 97.0
-        }
-      ],
-      "firstSeenAt": "2026-10-07",
       "label": "CEGO 首次發現",
       "officialNew": false
     }
