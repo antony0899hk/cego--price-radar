@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-09T22:12:21.174902+08:00",
+  "updatedAt": "2026-11-10T21:41:24.564502+08:00",
   "results": [
     {
       "code": "P000002032",
@@ -89,24 +89,6 @@
         }
       ],
       "firstSeenAt": "2026-10-23",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000004671",
-      "brand": "金御膳",
-      "product": "單片雲耳 150克",
-      "category": "乾貨",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 33.0
-        }
-      ],
-      "firstSeenAt": "2026-10-10",
       "label": "CEGO 首次發現",
       "officialNew": false
     }
