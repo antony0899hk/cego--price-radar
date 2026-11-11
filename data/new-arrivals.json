@@ -1,7 +1,61 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-10T21:41:24.564502+08:00",
+  "updatedAt": "2026-11-11T20:53:13.783889+08:00",
   "results": [
+    {
+      "code": "P000004966",
+      "brand": "L'Oreal Paris",
+      "product": "金致臻顏花蜜奢養膠原眼霜 20毫升",
+      "category": "皮膚護理",
+      "stores": [
+        "萬寧"
+      ],
+      "prices": [
+        {
+          "store": "萬寧",
+          "price": 285.0
+        }
+      ],
+      "firstSeenAt": "2026-11-11",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000002338",
+      "brand": "百邦",
+      "product": "牛油曲奇 306克",
+      "category": "餅乾",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 69.9
+        }
+      ],
+      "firstSeenAt": "2026-11-11",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000004361",
+      "brand": "Meadows",
+      "product": "澳洲白薯 1千克",
+      "category": "新鮮蔬菜",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 18.0
+        }
+      ],
+      "firstSeenAt": "2026-11-05",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
     {
       "code": "P000002032",
       "brand": "潔柔",
@@ -93,7 +147,7 @@
       "officialNew": false
     }
   ],
-  "newToday": 0,
+  "newToday": 2,
   "historySnapshots": 35,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
