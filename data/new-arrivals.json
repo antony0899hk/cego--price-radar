@@ -1,7 +1,313 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-11T20:53:13.783889+08:00",
+  "updatedAt": "2026-11-12T21:55:42.070278+08:00",
   "results": [
+    {
+      "code": "P000005488",
+      "brand": "國聯",
+      "product": "急凍南美白對蝦肉180克 (急凍 -18°c)",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 26.9
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005487",
+      "brand": "佳之選",
+      "product": "急凍原隻大虎蝦(asc) [越南] (急凍 -18°c) 300克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 42.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005485",
+      "brand": "Nova Marine",
+      "product": "智利三文魚扒[智利](急凍 -18°C) 400克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 79.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005483",
+      "brand": "Aqua Leader",
+      "product": "急凍挪威原條大西洋鮭魚魚柳 (ASC) (急凍 -18°C) 1件",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 197.9
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005481",
+      "brand": "Whale Tail",
+      "product": "急凍急凍阿拉斯加野生紅魚柳 (MSC) [美國] (急凍 -18°C) 240克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 30.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005479",
+      "brand": "急凍挪威三文魚鰭 [挪威] (急凍 -18°C) 300克",
+      "product": "300克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 22.9
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005478",
+      "brand": "Ocean Champion",
+      "product": "急凍挪威三文魚腩 400克 [挪威] (急凍 -18°C)",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 26.9
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005477",
+      "brand": "急凍挪威有皮三文魚柳 [挪威] (急凍 -18°C) (包裝隨機) 4件裝",
+      "product": "480克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 80.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005475",
+      "brand": "佳之選",
+      "product": "急凍冰島有皮三文魚柳 (ASC) [冰島] (急凍 -18°C) 240克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 74.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005474",
+      "brand": "Supreme Balance",
+      "product": "急凍挪威三文魚扒（兩塊裝）［挪威］（急凍－１８°Ｃ）（包裝隨機）320G",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 59.9
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005472",
+      "brand": "急凍韓國蠔肉 [韓國](急凍 -18°c)",
+      "product": "300G",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 49.9
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005471",
+      "brand": "Java Sea",
+      "product": "急凍野生赤香螺肉[印尼](急凍 -18°c) 200G",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 22.9
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005469",
+      "brand": "Leader Marine",
+      "product": "急凍 Asc 挪威帶皮三文魚柳 [挪威] (急凍 -18°C) 240克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 70.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005468",
+      "brand": "Leader Marine",
+      "product": "急凍越南原隻珍寶虎蝦 (4隻裝) [越南] (急凍 -18°C) 500克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 150.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005467",
+      "brand": "海灣扇貝肉",
+      "product": "270克 (847095)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 20.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005466",
+      "brand": "越南業務用急凍珍寶白蝦仁",
+      "product": "包裝 1公斤 (828210)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 158.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005465",
+      "brand": "日本急凍帶子",
+      "product": "包裝 255克 (999631)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 69.0
+        }
+      ],
+      "firstSeenAt": "2026-11-12",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
     {
       "code": "P000004966",
       "brand": "L'Oreal Paris",
@@ -147,7 +453,7 @@
       "officialNew": false
     }
   ],
-  "newToday": 2,
+  "newToday": 17,
   "historySnapshots": 35,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
