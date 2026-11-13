@@ -1,7 +1,421 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-12T21:55:42.070278+08:00",
+  "updatedAt": "2026-11-13T21:20:43.218734+08:00",
   "results": [
+    {
+      "code": "P000005496",
+      "brand": "Java Sea",
+      "product": "急凍野生對蝦肉 (急凍 -18°c) 200克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 34.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005495",
+      "brand": "急凍野生虎蝦皇 (急凍 -18°c)",
+      "product": "1千克 (980599)",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 411.9
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005494",
+      "brand": "Mcboat",
+      "product": "急凍澳洲野生虎蝦(msc) (急凍 -18°c) 400克",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 278.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005493",
+      "brand": "Java Sea",
+      "product": "急凍海捕對蝦300克 [印尼](急凍 -18°c)",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 40.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005492",
+      "brand": "Java Sea",
+      "product": "急凍熊蝦（花蝦） (急凍 -18°c) 300G",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 88.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005489",
+      "brand": "佳之選",
+      "product": "急凍去殼虎蝦仁(asc) [越南] (急凍 -18°c) 180G",
+      "category": "急凍海產",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 39.9
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005463",
+      "brand": "Asc 蜆肉",
+      "product": "200克 (622019)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 15.9
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005461",
+      "brand": "印尼急凍海捕花竹蝦",
+      "product": "3-5隻 300克",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 105.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005460",
+      "brand": "日本急凍珍寶帶子肉",
+      "product": "454克 (707000)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 155.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005458",
+      "brand": "越南業務用急凍珍寶虎蝦仁",
+      "product": "包裝 780克 (804229)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 168.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005457",
+      "brand": "紐西蘭全殼綠殼青口",
+      "product": "包裝 500克 (821058)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 36.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005456",
+      "brand": "Asc 熟南美白蝦肉",
+      "product": "200克 (943647)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 35.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005455",
+      "brand": "印尼海捕花竹蝦肉",
+      "product": "200克 (775866)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 65.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005454",
+      "brand": "印尼急凍海捕白蝦肉",
+      "product": "200克 (775874)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 55.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005453",
+      "brand": "印尼急凍海捕白蝦",
+      "product": "300克 (947630)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 72.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005452",
+      "brand": "印尼急凍特大海捕白蝦",
+      "product": "300克 (939850)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 85.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005451",
+      "brand": "韓國急凍生蠔",
+      "product": "包裝 300克 (807461)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 30.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005448",
+      "brand": "Sunrise Bay",
+      "product": "阿根廷紅蝦仁 200克",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 46.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005447",
+      "brand": "Meadows",
+      "product": "急凍南美白蝦肉 300克 (bap)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 39.9
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005446",
+      "brand": "Meadows",
+      "product": "急凍越南虎蝦肉 200克 (asc)",
+      "category": "急凍海產",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 32.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000004708",
+      "brand": "佳之選",
+      "product": "橄欖油浸沙甸魚 120克",
+      "category": "罐頭食品",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 22.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001871",
+      "brand": "費列羅",
+      "product": "Rocher 金莎朱古力 T8 (8粒裝) 心形禮盒 100克",
+      "category": "糖果 / 甜品",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 57.8
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001449",
+      "brand": "蜜思",
+      "product": "精選特級牛奶巧克力 (內含七種不同口味) 400克",
+      "category": "糖果 / 甜品",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 148.0
+        }
+      ],
+      "firstSeenAt": "2026-11-13",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
     {
       "code": "P000005488",
       "brand": "國聯",
@@ -451,9 +865,45 @@
       "firstSeenAt": "2026-10-23",
       "label": "CEGO 首次發現",
       "officialNew": false
+    },
+    {
+      "code": "P000002519",
+      "brand": "滋味",
+      "product": "日本櫻花雞蛋 10隻",
+      "category": "蛋類",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 28.0
+        }
+      ],
+      "firstSeenAt": "2026-10-16",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000004345",
+      "brand": "Meadows",
+      "product": "荷蘭有枝車厘茄 250 GM",
+      "category": "新鮮蔬菜",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 32.0
+        }
+      ],
+      "firstSeenAt": "2026-10-14",
+      "label": "CEGO 首次發現",
+      "officialNew": false
     }
   ],
-  "newToday": 17,
+  "newToday": 23,
   "historySnapshots": 35,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
