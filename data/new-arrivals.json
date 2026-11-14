@@ -1,7 +1,48 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-13T21:20:43.218734+08:00",
+  "updatedAt": "2026-11-14T20:25:06.437898+08:00",
   "results": [
+    {
+      "code": "P000001019",
+      "brand": "丹麥藍罐",
+      "product": "牛油曲奇 454克",
+      "category": "餅乾",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 104.5
+        }
+      ],
+      "firstSeenAt": "2026-11-14",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000001017",
+      "brand": "丹麥藍罐",
+      "product": "Choco Duo 朱古力曲奇 750克",
+      "category": "餅乾",
+      "stores": [
+        "惠康",
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 113.5
+        },
+        {
+          "store": "百佳",
+          "price": 113.5
+        }
+      ],
+      "firstSeenAt": "2026-11-14",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
     {
       "code": "P000005496",
       "brand": "Java Sea",
@@ -883,27 +924,9 @@
       "firstSeenAt": "2026-10-16",
       "label": "CEGO 首次發現",
       "officialNew": false
-    },
-    {
-      "code": "P000004345",
-      "brand": "Meadows",
-      "product": "荷蘭有枝車厘茄 250 GM",
-      "category": "新鮮蔬菜",
-      "stores": [
-        "惠康"
-      ],
-      "prices": [
-        {
-          "store": "惠康",
-          "price": 32.0
-        }
-      ],
-      "firstSeenAt": "2026-10-14",
-      "label": "CEGO 首次發現",
-      "officialNew": false
     }
   ],
-  "newToday": 23,
+  "newToday": 2,
   "historySnapshots": 35,
   "note": "CEGO first-seen compares daily Consumer Council product codes. It is not a manufacturer launch date."
 }
