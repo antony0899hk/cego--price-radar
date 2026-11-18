@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-17T22:47:03.565748+08:00",
+  "updatedAt": "2026-11-18T22:27:06.765301+08:00",
   "results": [
     {
       "code": "P000001019",
@@ -814,6 +814,60 @@
         }
       ],
       "firstSeenAt": "2026-11-05",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005209",
+      "brand": "Meadows",
+      "product": "橄欖油 2公升",
+      "category": "食用油 / 煮食油",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 180.0
+        }
+      ],
+      "firstSeenAt": "2026-10-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005097",
+      "brand": "Meadows",
+      "product": "100%椰青水 1公升",
+      "category": "果汁類飲品",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 22.0
+        }
+      ],
+      "firstSeenAt": "2026-10-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000004069",
+      "brand": "Meadows",
+      "product": "法國礦泉水 1.5公升 x 6",
+      "category": "樽裝水 / 運動飲品 /  能量飲品",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 57.0
+        }
+      ],
+      "firstSeenAt": "2026-10-29",
       "label": "CEGO 首次發現",
       "officialNew": false
     },
