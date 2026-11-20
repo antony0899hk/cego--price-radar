@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-19T22:37:26.686646+08:00",
+  "updatedAt": "2026-11-20T22:15:39.017073+08:00",
   "results": [
     {
       "code": "P000001019",
@@ -865,6 +865,24 @@
         {
           "store": "惠康",
           "price": 57.0
+        }
+      ],
+      "firstSeenAt": "2026-10-29",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000002519",
+      "brand": "滋味",
+      "product": "日本櫻花雞蛋 10隻",
+      "category": "蛋類",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 30.0
         }
       ],
       "firstSeenAt": "2026-10-29",
