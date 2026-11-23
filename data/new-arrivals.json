@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-22T21:31:05.112733+08:00",
+  "updatedAt": "2026-11-24T00:20:59.135464+08:00",
   "results": [
     {
       "code": "P000001019",
@@ -958,24 +958,6 @@
         }
       ],
       "firstSeenAt": "2026-10-29",
-      "label": "CEGO 首次發現",
-      "officialNew": false
-    },
-    {
-      "code": "P000004669",
-      "brand": "金御膳",
-      "product": "特級鴨膶腸 200克",
-      "category": "乾貨",
-      "stores": [
-        "百佳"
-      ],
-      "prices": [
-        {
-          "store": "百佳",
-          "price": 34.0
-        }
-      ],
-      "firstSeenAt": "2026-10-23",
       "label": "CEGO 首次發現",
       "officialNew": false
     }
