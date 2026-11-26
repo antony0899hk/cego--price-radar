@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-25T23:55:31.514618+08:00",
+  "updatedAt": "2026-11-26T23:36:46.124029+08:00",
   "results": [
     {
       "code": "P000001019",
@@ -814,6 +814,24 @@
         }
       ],
       "firstSeenAt": "2026-11-05",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000005081",
+      "brand": "嘉拿蘋果",
+      "product": "袋裝 1.8磅 (113291944)",
+      "category": "新鮮水果",
+      "stores": [
+        "惠康"
+      ],
+      "prices": [
+        {
+          "store": "惠康",
+          "price": 16.0
+        }
+      ],
+      "firstSeenAt": "2026-11-04",
       "label": "CEGO 首次發現",
       "officialNew": false
     },
