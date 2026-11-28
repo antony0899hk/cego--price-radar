@@ -1,6 +1,6 @@
 {
   "version": "0.10.4",
-  "updatedAt": "2026-11-27T23:27:50.393467+08:00",
+  "updatedAt": "2026-11-28T22:26:40.298067+08:00",
   "results": [
     {
       "code": "P000001019",
@@ -832,6 +832,24 @@
         }
       ],
       "firstSeenAt": "2026-11-04",
+      "label": "CEGO 首次發現",
+      "officialNew": false
+    },
+    {
+      "code": "P000004782",
+      "brand": "佳之選",
+      "product": "合桃 40克",
+      "category": "小食",
+      "stores": [
+        "百佳"
+      ],
+      "prices": [
+        {
+          "store": "百佳",
+          "price": 15.9
+        }
+      ],
+      "firstSeenAt": "2026-10-31",
       "label": "CEGO 首次發現",
       "officialNew": false
     },
